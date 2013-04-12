@@ -1,4 +1,4 @@
-Ext.define('GS.view.Contact', {
+Ext.define('WTTFT.view.Contact', {
 	extend: 'Ext.form.Panel',
 	xtype: 'contactform',
 

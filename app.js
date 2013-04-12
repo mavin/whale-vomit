@@ -1,20 +1,20 @@
 //<debug>
 Ext.Loader.setPath({
     'Ext': 'touch/src',
-    'GS': 'app'
+    'WTTFT': 'app'
 });
 //</debug>
 
 Ext.application({
     controllers: ["Main"],
 
-    name: 'GS',
+    name: 'WTTFT',
 
     requires: [
         'Ext.MessageBox'
     ],
 
-    views: ['Main', 'Home', 'Contact', 'Blog', 'Test'],
+    views: ['Main', 'Home', 'Browse', 'Contact', 'About'],
 
     icon: {
         '57': 'resources/icons/Icon.png',
@@ -39,7 +39,7 @@ Ext.application({
         Ext.fly('appLoadingIndicator').destroy();
 
         // Initialize the main view
-        Ext.Viewport.add(Ext.create('GS.view.Main'));
+        Ext.Viewport.add(Ext.create('WTTFT.view.Main'));
     },
 
     onUpdated: function() {

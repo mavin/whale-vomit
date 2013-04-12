@@ -1,4 +1,4 @@
-Ext.define('GS.controller.Main', {
+Ext.define('WTTFT.controller.Main', {
     extend: 'Ext.app.Controller',
     
     config: {

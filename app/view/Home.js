@@ -1,4 +1,4 @@
-Ext.define('GS.view.Home', {
+Ext.define('WTTFT.view.Home', {
 	extend: 'Ext.Panel',
 	xtype: 'homepanel',
 
