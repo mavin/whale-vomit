@@ -6,15 +6,17 @@ Ext.Loader.setPath({
 //</debug>
 
 Ext.application({
-    controllers: ["Main"],
-
     name: 'WTTFT',
 
-    requires: [
-        'Ext.MessageBox'
-    ],
+    requires: [ 'Ext.MessageBox' ],
 
-    views: ['Main', 'Home', 'Browse', 'Contact', 'About'],
+    models: [ 'Resource' ],
+
+    stores: [ 'Resources' ],
+
+    controllers: [ 'Main' ],
+
+    views: [ 'Main', 'Home', 'Browse', 'Contact', 'About' ],
 
     icon: {
         '57': 'resources/icons/Icon.png',
