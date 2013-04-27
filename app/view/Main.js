@@ -1,6 +1,7 @@
 Ext.define('WTTFT.view.Main', {
     extend: 'Ext.tab.Panel',
     xtype: 'main',
+    id: 'main',
     requires: [
         'Ext.TitleBar'
     ],
@@ -15,28 +16,11 @@ Ext.define('WTTFT.view.Main', {
                 xtype: 'browse'
             },
             {
-                xtype: 'browse',
-                title: 'Search',
-                iconCls: 'search'
-            },
-            {
-                xtype: 'browse',
-                title: 'History',
-                iconCls: 'time'
-            },
-            {
-                xtype: 'aboutpanel',
-                title: 'Call Teen Link'
-            },
-            {
-                xtype: 'browse',
-                title: 'Bookmarks'
+                xtype: 'callteenlinkpanel'
             },
             {
                 xtype: 'aboutpanel'
             }
-
-
         ]
     }
 });

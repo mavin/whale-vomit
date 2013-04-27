@@ -6,16 +6,38 @@ Ext.define('WTTFT.view.Home', {
 		title: 'Home',
 		iconCls: 'home',
 		cls: 'home',
-		scrollable: true,
 		styleHtmlContent: true,
+		layout: 'vbox',
 
-        html: [
-	        '<img src="http://staging.sencha.com/img/sencha.png" />',
-	        '<h1>Welcome to Sencha Touch</h1>',
-	        "<p>You're creating the Getting Started app. This demonstrates how ",
-	        "to use tabs, lists and forms to create a simple app</p>",
-	        '<h2>Sencha Touch (2.0.0)</h2>'
-   		 ].join("")
+		items: [
+			{
+				xtype: 'panel',
+		        html: [
+			        '<img src="/WTTFT/resources/images/monster_arrowthing.png" />',
+			        '<h1>Where To Turn For Teens</h1>',
+			        "<p>There is help out there for you. Use this app to find it.</p>"
+		   		].join(""),
+		   		flex: 12
+			},
+			{
+				xtype: 'button',
+				text: 'Find Help',
+				flex: 1,
+				action: 'findhelp'
+			},
+			{
+				xtype: 'button',
+				text: 'Call Teen Link',
+				flex: 1,
+				action: 'callteenlink'
+			},
+			{
+				xtype: 'button',
+				text: 'About',
+				flex: 1,
+				action: 'about'
+			}
+		]
 
 
 

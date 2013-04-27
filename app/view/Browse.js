@@ -3,8 +3,8 @@ Ext.define('WTTFT.view.Browse', {
 	xtype: 'browse',
 
 	config: {
-		title: 'Browse',
-		iconCls: 'star',
+		title: 'Find Help',
+		iconCls: 'search',
 
 		items: [
             {

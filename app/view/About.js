@@ -1,5 +1,5 @@
 Ext.define('WTTFT.view.About', {
-	extend: 'Ext.Container',
+	extend: 'Ext.Panel',
 	xtype: 'aboutpanel',
 
 	config: {
@@ -8,28 +8,27 @@ Ext.define('WTTFT.view.About', {
 		cls: 'info',
 		scrollable: true,
 		styleHtmlContent: true,
-		layout: 'hbox',
+		layout: 'fit',
 		items: [
 			{
 				xtype: 'titlebar',
-				title: 'About',
-				docked: 'top'
+				docked: 'top',
+				title: 'About'
 			},
 			{
 				xtype: 'tabpanel',
-				docked: 'top',
 				items: [
 					{
 						title: 'Using the app',
-						html: 'plz 2 search and browse'
+						html: '<p>The two ways to look up information in the WTTFT app are through the Search or by browsing the topics listed. With search you can use a term or a specific agency.</p>'
 					},
 					{
 						title: 'Teen Link',
-						html: 'str8 thuggin'
+						html: '<p>Teen Link is a confidential, annoymus and non-judgemental telepone help line answered by teens each evening from 6-10 pm. Teen volunteers are trained to listen to your concerns and to talk with you about whatever is on your mind. No issue is too big or too small. Phone workers also have access to an extensive databse and can give you information on agencies serving youth the the King County area.</p>'
 					},
 					{
-						title: 'Credits',
-						html: '<h2>You are awesome</h2><p>thnk u</p>'
+						title: 'Volunteering',
+						html: '<p>Volunteering with Teen Link is a great way to develop leadership skills, learn about community resources and get connected with other youth. For more in-depth information about colunter requirements, call 1(866)TEENLINK between 6-10 pm or check out our website.</p>'
 					}	
 				]
 			}
