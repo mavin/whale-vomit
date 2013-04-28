@@ -17,11 +17,17 @@ Ext.define('WTTFT.store.Resources', {
 	        }
 	    },
 
-	    listeners: {
-            load: function (s, r) {
-                console.log(r)
+        grouper: {
+            groupFn: function(record) {
+                return record.get('name')[0];
             }
         },
+
+	    // listeners: {
+     //        load: function (s, r) {
+     //            console.log(r)
+     //        }
+     //    },
 
         autoLoad: true
     }

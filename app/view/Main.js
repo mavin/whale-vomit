@@ -20,6 +20,10 @@ Ext.define('WTTFT.view.Main', {
             },
             {
                 xtype: 'aboutpanel'
+            },
+            {
+                xtype: 'carousel',
+                iconCls: 'star'
             }
         ]
     }
