@@ -4,7 +4,10 @@ Ext.define('WTTFT.controller.Main', {
     // config: {
     //     refs: {
     //         main: '#main'
-    //     },
+    //     }
+
+    // tabpanel.getTabBar().hide()
+
     //     control: {
     //         'button[action=about]': 'loadAbout'
     //     }

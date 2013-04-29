@@ -33,9 +33,13 @@ Ext.define('WTTFT.view.About', {
 				]
 			}
 			
-		]
-
-
+		],
+		listeners: {
+			//On show event, unhides the TabBar
+			show: function() {
+				Ext.getCmp('main').getTabBar().show();
+			}
+		}
 
 	}
 
