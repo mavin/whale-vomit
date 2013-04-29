@@ -1,13 +1,26 @@
 Ext.define('WTTFT.view.Browse', {
-	extend: 'Ext.navigation.View',
+	extend: 'Ext.List',
 	xtype: 'browse',
 	id: 'browse',
 
 	config: {
 		title: 'Find Help',
 		iconCls: 'search',
+		itemId: 'browse',
+		itemTpl: '{name}',
+
+		grouped: true,
+		indexBar: true,
+
+		store: 'resourceStore',
 
 		items: [
+            {
+                xtype: 'titlebar',
+                docked: 'top',
+
+                title: 'Find Help'
+            },
             {
                 xtype: 'toolbar',
                 docked: 'top',
@@ -16,21 +29,12 @@ Ext.define('WTTFT.view.Browse', {
                     { xtype: 'spacer' },
                     {
                         xtype: 'searchfield',
-                        placeHolder: 'Search...'
+                        placeHolder: 'Search...',
+                        id: 'browseSearch'
                     },
                     { xtype: 'spacer' }
                 ]
-            },
-			{
-				xtype: 'list',
-				itemId: 'browse',
-				itemTpl: '{name}', 
-				title: 'Browse',
-				grouped: true,
-				indexBar: true,
-
-				store: 'resourceStore'
-			}
+            }
 		]
 	}
 });

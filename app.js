@@ -14,9 +14,9 @@ Ext.application({
 
     stores: [ 'Resources' ],
 
-    controllers: [ 'Main', 'Home' ],
+    controllers: [ 'Main', 'Home', 'Browse' ],
 
-    views: [ 'Main', 'Home', 'Browse', 'CallTeenLink', 'About', 'Carousel' ],
+    views: [ 'Main', 'Home', 'Browse', 'CallTeenLink', 'About'],
 
     icon: {
         '57': 'resources/icons/Icon.png',
