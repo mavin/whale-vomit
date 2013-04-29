@@ -36,5 +36,11 @@ Ext.define('WTTFT.view.Browse', {
                 ]
             }
 		]
+	},
+	listeners: {
+		//On show event, unhides the TabBar
+		show: function() {
+			Ext.getCmp('main').getTabBar().show();
+		}
 	}
 });

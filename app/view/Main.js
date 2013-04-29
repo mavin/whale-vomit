@@ -7,10 +7,15 @@ Ext.define('WTTFT.view.Main', {
     ],
     config: {
         tabBarPosition: 'bottom',
-
         items: [
             {
-                xtype: 'homepanel'
+                xtype: 'homepanel',
+                listeners: {
+                    //whenever the home icon in the tabPanel is activated, the tabPanel will be hidden.
+                    activate: function() {
+                       Ext.getCmp('main').getTabBar().hide();
+                    }
+                }
             },
             {
                 xtype: 'browse'
@@ -25,6 +30,14 @@ Ext.define('WTTFT.view.Main', {
                 xtype: 'carousel',
                 iconCls: 'star'
             }
-        ]
-    }
+        ],
+        listeners: {
+            //Hides the tapPanel once the homescreen is shown
+            show: function() {
+                Ext.getCmp('main').getTabBar().hide();
+            }
+        }
+    },
+
+
 });
