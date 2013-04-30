@@ -3,8 +3,8 @@ Ext.define('WTTFT.store.Resources', {
     requires: [ 'Ext.data.proxy.LocalStorage',  ],
 
     config: {
-        model: 'WTTFT.model.Resource',
         storeId: 'resourceStore',
+        model: 'WTTFT.model.Resource',
     	proxy: {
         	type: 'ajax',
         	url: 'resources/data/resources.json',
@@ -24,8 +24,14 @@ Ext.define('WTTFT.store.Resources', {
         },
 
 	    // listeners: {
-     //        load: function (s, r) {
-     //            console.log(r)
+     //        load: function (store, record) {
+     //            resourceCar = Ext.ComponentManager.get('resourceCar');
+     //            store.each(function(record){
+     //                //console.log(record);
+     //                resourceCar.add({
+     //                    html: '<p>' + record.get('agencyName') + ' ' + record.get('serviceName') + '</p>'
+     //                });
+     //            });
      //        }
      //    },
 

@@ -1,23 +1,12 @@
 Ext.define('WTTFT.view.Carousel', {
     extend: 'Ext.carousel.Carousel',
-    xtype: 'carousel',
+    xtype: 'flipview',
+    id: 'resourceCar',
 
     config: {
-
-        items: [
-            {
-                xtype: 'panel',
-                html: 'hello1'
-            },
-            {
-                xtype: 'panel',
-                html: 'hello2'
-            },
-            {
-                xtype: 'panel',
-                html: 'hello3'
-            }
-        ]
+        title: 'Find Help',
+        cls: 'findhelp',
+        indicator: false
     }
 
  });

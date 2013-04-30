@@ -1,46 +1,54 @@
 Ext.define('WTTFT.view.Browse', {
-	extend: 'Ext.List',
+	extend: 'Ext.navigation.View',
 	xtype: 'browse',
 	id: 'browse',
 
 	config: {
 		title: 'Find Help',
 		iconCls: 'search',
-		itemId: 'browse',
-		itemTpl: '{name}',
 
-		grouped: true,
-		indexBar: true,
-
-		store: 'resourceStore',
+		navigationBar: {
+            items: [
+                {
+                    html: 'text',
+                    align: 'right'
+                }
+            ]
+        },
 
 		items: [
             {
-                xtype: 'titlebar',
-                docked: 'top',
+            	xtype: 'list',
+            	title: 'Find Help',
 
-                title: 'Find Help'
-            },
-            {
-                xtype: 'toolbar',
-                docked: 'top',
+        		itemTpl: '{name}',
 
-                items: [
-                    { xtype: 'spacer' },
-                    {
-                        xtype: 'searchfield',
-                        placeHolder: 'Search...',
-                        id: 'browseSearch'
-                    },
-                    { xtype: 'spacer' }
-                ]
+				grouped: true,
+				indexBar: true,
+
+				store: 'resourceStore'
             }
-		]
-	},
-	listeners: {
-		//On show event, unhides the TabBar
-		show: function() {
-			Ext.getCmp('main').getTabBar().show();
+            // ,{
+            //     xtype: 'toolbar',
+            //     docked: 'bottom',
+
+            //     items: [
+            //         { xtype: 'spacer' },
+            //         {
+            //             xtype: 'searchfield',
+            //             placeHolder: 'Search...',
+            //             id: 'browseSearch'
+            //         },
+            //         { xtype: 'spacer' }
+            //     ]
+            // }
+		],
+		
+		listeners: {
+			//On show event, unhides the TabBar
+			show: function() {
+				Ext.getCmp('main').getTabBar().show();
+			}
 		}
 	}
 });

@@ -16,7 +16,7 @@ Ext.application({
 
     controllers: [ 'Main', 'Home', 'Browse' ],
 
-    views: [ 'Main', 'Home', 'Browse', 'CallTeenLink', 'About'],
+    views: [ 'Main', 'Home', 'Browse', 'CallTeenLink', 'About', 'Carousel'],
 
     icon: {
         '57': 'resources/icons/Icon.png',
