@@ -5,7 +5,7 @@ Ext.define('WTTFT.controller.Browse', {
         refs: {
             main: 'main',
             browse: 'browse',
-            list: 'browse list'
+            list: 'browse list',
         },
         control: {
             '#browseSearch' : {  //  the id or itemId we gave our searchfield  
@@ -15,7 +15,8 @@ Ext.define('WTTFT.controller.Browse', {
             },
             list : {
                 itemtap: 'showResource'
-            }
+            },
+            styleHtmlContent: true,
         }
     },
 
@@ -25,8 +26,22 @@ Ext.define('WTTFT.controller.Browse', {
         store.each(function(record){
             carItems.push({
                 xtype: 'panel',
-                html: '<p>' + record.get('name') + '</p>'
+                html:   '\
+                        <div class="resourceContainer"> \
+                            <h1 class="carResource resource-agency-name">' + record.get('agencyName') + '</h1> \
+                            <p class="carResource resource-address1">' + record.get('address1') +'</p> \
+                            <p class="carResource resource-address2">' + record.get('address2') +'</p> \
+                            <p class="carResource resource-phone">' + record.get('phone') +'</p> \
+                            <p class="carResource resource-service-website">' + record.get('serviceWebsite') +'</p> \
+                            <img class="carResourceHelp" src="../WTTFT/touch/resources/themes/images/default/pictos/help_black.png"> \
+                            <p class="carResource resource-description">About:'+record.get('description') +'</p> \
+                        </div>'
+
             });
+
+            //<h1 class="carResource resource-service-name">' + record.get('serviceName') + '</h1> \
+            // <p class="carResource resource-agency-website">' + record.get('agencyWebsite') +'</p> \
+
         });
         this.getBrowse().push({
             xtype: 'flipview',

@@ -20,7 +20,8 @@ Ext.define('WTTFT.view.About', {
 				items: [
 					{
 						title: 'Using the app',
-						html: '<p>The two ways to look up information in the WTTFT app are through the Search or by browsing the topics listed. With search you can use a term or a specific agency.</p>'
+						html: '<p>The two ways to look up information in the WTTFT app are through the Search or by browsing the topics listed. \
+								With search you can use a term or a specific agency.</p>'
 					},
 					{
 						title: 'Teen Link',
