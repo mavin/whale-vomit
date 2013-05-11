@@ -17,12 +17,6 @@ Ext.define('WTTFT.store.Topics', {
             }
         },
 
-        listeners: {
-            load: function (s, r) {
-                console.log(r)
-            }
-        },
-
         autoLoad: true
     }
 });
