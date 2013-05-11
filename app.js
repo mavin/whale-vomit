@@ -10,9 +10,13 @@ Ext.application({
 
     requires: [ 'Ext.MessageBox' ],
 
-    models: [ 'Resource' ],
+    models: [ 'Resource',
+              'Topic'
+            ],
 
-    stores: [ 'Resources' ],
+    stores: [ 'Resources',
+              'Topics'
+            ],
 
     controllers: [ 'Main', 'Home', 'Browse' ],
 
