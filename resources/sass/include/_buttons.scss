@@ -1,0 +1,30 @@
+@mixin wttft-button($color){
+	margin-bottom: 15px;
+	font-size: 17px;
+	background: $color;
+	border: none;
+	color: white;
+	text-decoration: none;
+	align: left;
+	.x-button-label {
+		padding: 10px;
+	}
+
+	&.x-button-pressing {
+		background: darken($color, 10);
+	}
+}
+
+.orange {
+	@include wttft-button(#f4aa00);
+	margin-top: 10px;
+}
+
+.green {
+	@include wttft-button(#bed600);
+}
+
+.blue {
+	//@include wttft-button(#a0dae8);
+	@include wttft-button(#97d5dc);
+}

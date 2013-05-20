@@ -20,12 +20,10 @@ Ext.define('WTTFT.view.Browse', {
             {
             	xtype: 'list',
             	title: 'Find Help',
-
+                color: 'white',
         		itemTpl: '{name}',
-
 				grouped: true,
-				indexBar: true,
-
+				indexBar: false,
 				store: 'resourceStore'
             }
             // ,{

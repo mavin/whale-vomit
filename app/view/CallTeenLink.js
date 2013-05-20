@@ -25,7 +25,10 @@ Ext.define('WTTFT.view.CallTeenLink', {
 						xtype: 'button',
 						text: 'Call Now',
 						ui: 'confirm',
-						flex: 1
+						flex: 1,
+			           handler:function(){
+			              document.location.href = 'tel:+8668336546'
+			            }
 					}
 				]
 			}
