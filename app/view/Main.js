@@ -7,6 +7,8 @@ Ext.define('WTTFT.view.Main', {
     ],
     config: {
         tabBarPosition: 'bottom',
+        ui: 'dark',
+        pack: 'center',
         items: [
             {
                 xtype: 'homepanel',
@@ -33,7 +35,5 @@ Ext.define('WTTFT.view.Main', {
                 Ext.getCmp('main').getTabBar().hide();
             }
         }
-    },
-
-
+    }
 });

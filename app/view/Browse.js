@@ -5,7 +5,7 @@ Ext.define('WTTFT.view.Browse', {
 
 	config: {
 		title: 'Find Help',
-		iconCls: 'search',
+		iconCls: 'search2',
 
 		navigationBar: {
             items: [
@@ -23,7 +23,7 @@ Ext.define('WTTFT.view.Browse', {
                 color: 'white',
         		itemTpl: '{name}',
 				grouped: true,
-				indexBar: false,
+				indexBar: true,
 				store: 'resourceStore'
             }
             // ,{
@@ -45,7 +45,9 @@ Ext.define('WTTFT.view.Browse', {
 		listeners: {
 			//On show event, unhides the TabBar
 			show: function() {
-				Ext.getCmp('main').getTabBar().show();
+                var tabBar = Ext.getCmp('main').getTabBar();
+                tabBar.setUi('dark');
+                tabBar.show();
 			}
 		}
 	}

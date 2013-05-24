@@ -26,7 +26,7 @@ Ext.define('WTTFT.view.Home', {
 					'youth who are seeking personal empowerment with the support of others. ',
 					'The agencies listed here can link youth to organizations that provide a variety of services.</p>'
 				].join(""),
-				flex: 7,
+				flex: 7
 			},
 		   	{
 				xtype: 'button',

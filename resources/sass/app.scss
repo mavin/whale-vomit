@@ -1,7 +1,8 @@
 //variable overrides (these affect the app as a whole):
 
-$base-color: #ffb300; //The orangey color
+$base-color: #FF7A00; //The orangey color
 $active-color: #FFFFFF; //White active colors
+
 
 //List overrides (these affect the list views, such as browse/find)
 
@@ -23,7 +24,7 @@ $list-header-bg-color: $base-color; //the grouping headers -- set to the be iden
 @include sencha-tabs;
 @include sencha-toolbar;
 //@include sencha-toolbar-forms;
-//@include sencha-indexbar;
+@include sencha-indexbar;
 @include sencha-list;
 @include sencha-layout;
 //@include sencha-carousel;
@@ -34,8 +35,20 @@ $list-header-bg-color: $base-color; //the grouping headers -- set to the be iden
 
 //-----------------------------------------------Custom includes go here-----------------------------------------------------------------------
 
-//the imports the _buttons.scss file that contains all button component css.
+//imports _buttons.scss file that contains all button component css.
 @import 'include/buttons';
+
+//icon images
+@include pictos-iconmask('phone1');
+@include pictos-iconmask('search2');
+
+//toolbar and tabbar ui's
+
+@include sencha-toolbar-ui('callTeenLink', darken(#78FF0A, 10), 'matte');
+@include sencha-tabbar-ui('callTabBar', darken(#78FF0A, 10), 'matte', $active-color);
+
+@include sencha-toolbar-ui('aboutTeenLink', #97d5dc, 'matte');
+@include sencha-tabbar-ui('aboutTabBar', #97d5dc, 'matte', $active-color);
 
 
 
@@ -44,7 +57,7 @@ $list-header-bg-color: $base-color; //the grouping headers -- set to the be iden
 //-----------------------------------------------Custom css goes here-----------------------------------------------------------------------
 
 //set the title in the toolbar above the listview to be a white color with a gray text-shadow color.
-.x-toolbar-dark .x-title {
+.x-toolbar-dark .x-title, .x-toolbar-callTeenLink .x-title, .x-toolbar-aboutTeenLink .x-title, .x-button-label {
 	color: #fff;
 	text-shadow: rgba(0,0,0,0.5) 0 -0.08em 0;
 }
@@ -54,6 +67,12 @@ $list-header-bg-color: $base-color; //the grouping headers -- set to the be iden
 	background: url("../images/wttft-homescreen-large.png") no-repeat center !important;
 }
 
+//applies the gridlike background to the about and call pages
+.aboutPanel, .callPanel {
+	background: url("../images/background.jpg") no-repeat center;
+}
+
+//The WHERE to TURN for TEENS text on the home page
 .homePanel .x-html h1, .homeTitlePanel {
 	color: #993f98;
 	font-size: 45px;
@@ -63,14 +82,15 @@ $list-header-bg-color: $base-color; //the grouping headers -- set to the be iden
 	padding-right: 5px;
 }
 
-.homeDescription {
-	font-size: 12px;
+//Provides the transparent white background behind paragraph text on the home, about, and call pages
+.homeDescription p, .about, .callText {
+	font-size: 13px;
 	text-align: justify;
 	background: rgba(255, 255, 255, .6);
+	padding-right: 5px;
+	padding-left: 5px;
 
 }
-
-
 
 
 

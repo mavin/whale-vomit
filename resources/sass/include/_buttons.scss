@@ -16,15 +16,14 @@
 }
 
 .orange {
-	@include wttft-button(#f4aa00);
-	margin-top: 10px;
+	@include wttft-button(#FF7A00);
+	margin-top: 15px;
 }
 
 .green {
-	@include wttft-button(#bed600);
+	@include wttft-button(darken(#78FF0A, 10));
 }
 
 .blue {
-	//@include wttft-button(#a0dae8);
 	@include wttft-button(#97d5dc);
 }
