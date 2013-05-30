@@ -16,7 +16,6 @@ Ext.define('WTTFT.controller.Browse', {
             list : {
                 itemtap: 'showResource'
             },
-            styleHtmlContent: true,
         }
     },
 
@@ -24,19 +23,28 @@ Ext.define('WTTFT.controller.Browse', {
         store = list.getStore();
         carItems = [];
         store.each(function(record){
+
+            //using regex to delete all non-digits in the phone numbers, to allow for on tap calling
+            //The raw phone number is still visible on the screen (it is not the same however, as when
+            //you tap the phone number), in case an extension exists
+            var regex = new RegExp(/[^0-9]/g);
+            var phoneNum = record.get('phone');
+            var sanitizedPhone = phoneNum.replace(regex, '');
+            
+
             carItems.push({
                 xtype: 'panel',
-                html:   '\
-                        <div class="resourceContainer"> \
-                            <h1 class="carResource resource-agency-name">' + record.get('agencyName') + '</h1> \
-                            <p class="carResource resource-address1">' + record.get('address1') +'</p> \
-                            <p class="carResource resource-address2">' + record.get('address2') +'</p> \
-                            <p class="carResource resource-phone">' + record.get('phone') +'</p> \
-                            <p class="carResource resource-service-website">' + record.get('serviceWebsite') +'</p> \
-                            <img class="carResourceHelp" src="../WTTFT/touch/resources/themes/images/default/pictos/help_black.png"> \
-                            <p class="carResource resource-description">About:'+record.get('description') +'</p> \
-                        </div>'
-
+                html:   [
+                        '<div class="resourceContainer">',
+                            '<h1 class="carResource resource-agency-name">' + record.get('agencyName') + '</h1>',
+                            '<p class="carResource resource-address1">Address: '+ record.get('address1') +'</p>',
+                            '<p class="carResource resource-address2">' + record.get('address2') +'</p>',
+                            '<p class="carResource resource-phone">Phone #: <a href="tel:'+sanitizedPhone+'">'+phoneNum+'</a>',
+                            '<img class="carResourceHelp" src="../WTTFT/touch/resources/themes/images/default/pictos/help_black.png"></p>',
+                            '<p class="carResource resource-service-website"><a href="'+record.get('serviceWebsite')+'">' + record.get('serviceWebsite') +'</a></p>',
+                            '<p class="carResource resource-description">About:'+record.get('description') +'</p>',
+                        '</div>'
+                        ].join("")
             });
 
             //<h1 class="carResource resource-service-name">' + record.get('serviceName') + '</h1> \
@@ -55,8 +63,19 @@ Ext.define('WTTFT.controller.Browse', {
                         align: 'right'
                     }
                 ]
-            }
+            },
+            listeners: [
+                {
+                    element: 'element',
+                    delegate: '.carResourceHelp',
+                    event: 'tap',
+                    fn: function() {
+                        console.log("the resource helper icon has been pressed");
+                    }
+                }
+            ]
         });
+
     },
 
     // THIS IS ALL USELESS FOR THE MOMENT
@@ -120,4 +139,6 @@ Ext.define('WTTFT.controller.Browse', {
         //call the clearFilter method on the store instance  
         Ext.getCmp('resourceStore').getStore().clearFilter();  
     }  
+
+
 });

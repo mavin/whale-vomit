@@ -44,8 +44,8 @@ $list-header-bg-color: $base-color; //the grouping headers -- set to the be iden
 
 //toolbar and tabbar ui's
 
-@include sencha-toolbar-ui('callTeenLink', darken(#78FF0A, 10), 'matte');
-@include sencha-tabbar-ui('callTabBar', darken(#78FF0A, 10), 'matte', $active-color);
+@include sencha-toolbar-ui('callTeenLink', #78FF0A, 'matte'); //darken(#78FF0A, 10), 'matte');
+@include sencha-tabbar-ui('callTabBar', #78FF0A, 'matte', $active-color); //darken(#78FF0A, 10), 'matte', $active-color);
 
 @include sencha-toolbar-ui('aboutTeenLink', #97d5dc, 'matte');
 @include sencha-tabbar-ui('aboutTabBar', #97d5dc, 'matte', $active-color);
@@ -89,8 +89,63 @@ $list-header-bg-color: $base-color; //the grouping headers -- set to the be iden
 	background: rgba(255, 255, 255, .6);
 	padding-right: 5px;
 	padding-left: 5px;
+}
+
+.resourceContainer {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.resource-agency-name {
+	font-size: 22px;
+	font-weight: bold;
+	margin-left: 10px;
+	padding: 3px;
+}
+
+.resource-address1 {
+	font-style: italic;
+	margin-left: 15px;
+	padding-bottom: 3px;
+}
+
+.resource-address2 {
+	font-style: italic;
+	margin-left: 15px;
+	padding-bottom: 3px;
 
 }
+
+.resource-phone {
+	margin-left: 15px;
+	padding-bottom: 3px;
+
+}
+
+.resource-service-website {
+	margin-left: 15px;
+	padding-bottom: 3px;
+
+}
+
+.resource-description {
+	margin-left: 15px;
+
+}
+
+.carResourceHelp {
+	margin-left: 3px;
+	width: 15px;
+	height: auto;
+}
+
+
+
+
+
 
 
 
