@@ -68,7 +68,7 @@ $list-header-bg-color: $base-color; //the grouping headers -- set to the be iden
 }
 
 //applies the gridlike background to the about and call pages
-.aboutPanel, .callPanel {
+.aboutPanel, .callPanel, #resourceCar {
 	background: url("../images/background.jpg") no-repeat center;
 }
 
@@ -91,12 +91,15 @@ $list-header-bg-color: $base-color; //the grouping headers -- set to the be iden
 	padding-left: 5px;
 }
 
+
+// -------------------- This section is geared toward the resource items within a carousel ------------------------------
 .resourceContainer {
+	background: rgba(255, 255, 255, .6);
 	position: absolute;
 	top: 0;
 	right: 0;
-	bottom: 0;
 	left: 0;
+	
 }
 
 .resource-agency-name {
@@ -127,8 +130,9 @@ $list-header-bg-color: $base-color; //the grouping headers -- set to the be iden
 
 .resource-service-website {
 	margin-left: 15px;
+	margin-right: 15px;
 	padding-bottom: 3px;
-
+	word-wrap: break-word;
 }
 
 .resource-description {
@@ -141,6 +145,7 @@ $list-header-bg-color: $base-color; //the grouping headers -- set to the be iden
 	width: 15px;
 	height: auto;
 }
+
 
 
 

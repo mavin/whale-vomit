@@ -34,16 +34,15 @@ Ext.define('WTTFT.controller.Browse', {
 
             carItems.push({
                 xtype: 'panel',
+                cls: 'resourceContainer',
                 html:   [
-                        '<div class="resourceContainer">',
                             '<h1 class="carResource resource-agency-name">' + record.get('agencyName') + '</h1>',
                             '<p class="carResource resource-address1">Address: '+ record.get('address1') +'</p>',
                             '<p class="carResource resource-address2">' + record.get('address2') +'</p>',
                             '<p class="carResource resource-phone">Phone #: <a href="tel:'+sanitizedPhone+'">'+phoneNum+'</a>',
                             '<img class="carResourceHelp" src="../WTTFT/touch/resources/themes/images/default/pictos/help_black.png"></p>',
                             '<p class="carResource resource-service-website"><a href="'+record.get('serviceWebsite')+'">' + record.get('serviceWebsite') +'</a></p>',
-                            '<p class="carResource resource-description">About:'+record.get('description') +'</p>',
-                        '</div>'
+                            '<p class="carResource resource-description">About:'+record.get('description') +'</p>'
                         ].join("")
             });
 
