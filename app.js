@@ -10,13 +10,13 @@ Ext.application({
 
     requires: [ 'Ext.MessageBox' ],
 
-    models: [ 'Resource' ],
+    models: [ 'Resource', 'Topic' ],
 
-    stores: [ 'Resources' ],
+    stores: [ 'Resources', 'Topics' ],
 
-    controllers: [ 'Main', 'Home' ],
+    controllers: [ 'Main', 'Home', 'Browse' ],
 
-    views: [ 'Main', 'Home', 'Browse', 'CallTeenLink', 'About', 'Carousel' ],
+    views: [ 'Main', 'Home', 'Browse', 'CallTeenLink', 'About', 'Carousel', 'Topic', 'TopicInfo', 'ResourcesList', 'Resource' ],
 
     icon: {
         '57': 'resources/icons/Icon.png',

@@ -30,7 +30,13 @@ Ext.define('WTTFT.view.CallTeenLink', {
 				]
 			}
 			
-		]
+		],
+		listeners: {
+			//On show event, unhides the TabBar
+			show: function() {
+				Ext.getCmp('main').getTabBar().show();
+			}
+		}
 
 
 
