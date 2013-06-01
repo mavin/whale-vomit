@@ -5,43 +5,36 @@ Ext.define('WTTFT.controller.Browse', {
         refs: {
             main: 'main',
             browse: 'browse',
-            list: 'browse list',
+            topicList: 'browse > list',
+            resourcesButton: 'button[text="Resources"]',
+            resourcesList: 'resourceslist > list'
         },
         control: {
-            '#browseSearch' : {  //  the id or itemId we gave our searchfield  
-                scope: this,  
-                clearicontap: this.onSearchClearIconTap,  
-                keyup: this.onSearchKeyUp  
+            // '#browseSearch' : {  //  the id or itemId we gave our searchfield  
+            //     scope: this,  
+            //     clearicontap: this.onSearchClearIconTap,  
+            //     keyup: this.onSearchKeyUp  
+            // },
+            topicList : {
+                itemtap: 'showTopic'
             },
-            list : {
+            resourcesButton: {
+                tap: 'showResources'
+            },
+            resourcesList : {
                 itemtap: 'showResource'
-            },
-            styleHtmlContent: true,
+            }
         }
     },
 
-    showResource: function(list, index, element, record) {
+    showTopic: function(list, index, element, record) {
         store = list.getStore();
         carItems = [];
         store.each(function(record){
-            carItems.push({
-                xtype: 'panel',
-                html:   '\
-                        <div class="resourceContainer"> \
-                            <h1 class="carResource resource-agency-name">' + record.get('agencyName') + '</h1> \
-                            <p class="carResource resource-address1">' + record.get('address1') +'</p> \
-                            <p class="carResource resource-address2">' + record.get('address2') +'</p> \
-                            <p class="carResource resource-phone">' + record.get('phone') +'</p> \
-                            <p class="carResource resource-service-website">' + record.get('serviceWebsite') +'</p> \
-                            <img class="carResourceHelp" src="../WTTFT/touch/resources/themes/images/default/pictos/help_black.png"> \
-                            <p class="carResource resource-description">About:'+record.get('description') +'</p> \
-                        </div>'
-
-            });
-
-            //<h1 class="carResource resource-service-name">' + record.get('serviceName') + '</h1> \
-            // <p class="carResource resource-agency-website">' + record.get('agencyWebsite') +'</p> \
-
+            var topic = Ext.create('WTTFT.view.Topic');
+            topic.getAt(0).setData(record.data);
+            topic.getAt(1).setData(record.data);
+            carItems.push(topic);
         });
         this.getBrowse().push({
             xtype: 'flipview',
@@ -59,7 +52,41 @@ Ext.define('WTTFT.controller.Browse', {
         });
     },
 
-    // THIS IS ALL USELESS FOR THE MOMENT
+    showResources: function(button, e, eOpts) {
+        // var topic = button.getData();
+        var sto = Ext.getStore('resourceStore');
+        sto.clearFilter();
+        sto.filter('topic_id', button.getData()['id']);
+        var resourcesList = Ext.create('WTTFT.view.ResourcesList');
+        resourcesList.getAt(0).setStore(sto);
+        this.getBrowse().push(resourcesList);
+    },
+
+    showResource: function(list, index, element, record) {
+        store = list.getStore();
+        carItems = [];
+        store.each(function(record){
+            var resource = Ext.create('WTTFT.view.Resource');
+            resource.setData(record.data);
+            carItems.push(resource);
+        });
+        this.getBrowse().push({
+            xtype: 'flipview',
+            items: carItems,
+            activeItem: index,
+
+            navigationBar: {
+                items: [
+                    {
+                        text: 'text',
+                        align: 'right'
+                    }
+                ]
+            }
+        });
+    },
+
+    // THIS IS ALL USELESS SEARCH STUFF FOR THE MOMENT
     // Leaving it in for future use
     // onSearchKeyUp: function(field) {  
     //     console.log("searching now");

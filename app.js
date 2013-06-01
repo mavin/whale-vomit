@@ -20,7 +20,7 @@ Ext.application({
 
     controllers: [ 'Main', 'Home', 'Browse' ],
 
-    views: [ 'Main', 'Home', 'Browse', 'CallTeenLink', 'About', 'Carousel'],
+    views: [ 'Main', 'Home', 'Browse', 'CallTeenLink', 'About', 'Carousel', 'Topic', 'TopicInfo', 'ResourcesList', 'Resource' ],
 
     icon: {
         '57': 'resources/icons/Icon.png',

@@ -1,31 +1,20 @@
-Ext.define('WTTFT.view.Browse', {
+Ext.define('WTTFT.view.ResourcesList', {
 	extend: 'Ext.navigation.View',
-	xtype: 'browse',
+	xtype: 'resourceslist',
 
 	config: {
-		title: 'Find Help',
-		iconCls: 'search',
 
-		navigationBar: {
-            items: [
-                {
-                    html: 'text',
-                    align: 'right'
-                }
-            ]
-        },
+		navigationBar: false,
+        title: 'Find Help',
 
 		items: [
             {
             	xtype: 'list',
-            	title: 'Find Help',
 
         		itemTpl: '{name}',
 
 				grouped: true,
-				indexBar: true,
-
-				store: 'topicStore'
+				indexBar: true
             }
             // ,{
             //     xtype: 'toolbar',
@@ -41,13 +30,6 @@ Ext.define('WTTFT.view.Browse', {
             //         { xtype: 'spacer' }
             //     ]
             // }
-		],
-		
-		listeners: {
-			//On show event, unhides the TabBar
-			show: function() {
-				Ext.getCmp('main').getTabBar().show();
-			}
-		}
+		]
 	}
 });
