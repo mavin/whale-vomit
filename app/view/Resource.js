@@ -4,7 +4,7 @@ Ext.define('WTTFT.view.Resource', {
 
 	config: {
 
-		tpl: '<h1>{name}</h1><h2>{id}</h2><p>{phone}</p><p>{website}</p>',
+		tpl: '<h1>{name}</h1><p>{phone}</p><p>{website}</p>',
 		styleHtmlContent: true,
 
 		// BELOW IS OLD CODE FROM VIEW/ABOUT.JS

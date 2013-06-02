@@ -6,83 +6,54 @@ Ext.define('WTTFT.view.About', {
 		title: 'About',
 		iconCls: 'info',
 		cls: 'info',
-		scrollable: true,
 		styleHtmlContent: true,
 		layout: 'fit',
 		items: [
 			{
 				xtype: 'titlebar',
 				docked: 'top',
-				title: 'About',
-				ui: 'aboutTeenLink'
+				title: 'About'
 			},
 			{
 				xtype: 'tabpanel',
-				ui: 'aboutTabBar',
-				
 				items: [
 					{
 						title: 'The App',
-						styleHtmlContent: true,
-						html: [
-							'<h1>The WTTFT App</h1>',
-							'<p class="about">The two ways to look up information in the WTTFT app are through the ',
-							'Search feature (found on the homepage or icon tab) or by browsing the topics ',
-							'listed. With search you can use a term or a specific agency.</p>'
-							].join(""),
-						cls: 'aboutPanel'
+						scrollable: true,
+						html: '<p>The two ways to look up information in the WTTFT app are through the Search or by browsing the topics listed. With search you can use a term or a specific agency.</p>'
 					},
 					{
 						title: 'Teen Link',
-						styleHtmlContent: true,
-						html: [
-							'<h1>Teen Link</h1>',
-							'<p class="about">Teen Link is a confidential, anonymous, and non-judgemental ',
-							'telephone help line answered by teens each evening from 6-10 pm. ',
-							'Teen volunteers are trained to listen to your concerns and to talk with ',
-							'you about whatever is on your mind. No issue is too big or too small. ',
-							'Phone workers also have access to an extensive database and can give you ',
-							'information on agencies serving youth in the King County area.</p>'
-							].join(""),
-						cls: 'aboutPanel'
+						scrollable: true,
+						html: ['<img src = "/WTTFT/resources/images/teenlink_logo.png" style = "float:left;"/>',
+							'<p>Teen Link is a confidential, annoymus and non-judgemental telepone help line answered by teens each evening from 6-10 pm. Teen volunteers are trained to listen to your concerns and to talk with you about whatever is on your mind. No issue is too big or too small. Phone workers also have access to an extensive databse and can give you information on agencies serving youth the the King County area.</p>'
+						].join("")
 					},
 					{
 						title: 'Volunteering',
-						styleHtmlContent: true,
-						html: [
-							'<h1>Volunteering</h1>',
-							'<p class="about">Volunteering with Teen Link is a great way to develop leadership skills, ',
-							'learn about community resources and get connected with other youth. For more ',
-							'in-depth information about volunteer requirements, call <a href="tel:+8668336546">1-(866)TEENLINK</a> between ',
-							'6-10 pm or check out <a href="http://866teenlink.org/">our website</a>.</p>'
-							].join(""),
-						cls: 'aboutPanel'
-					}//,
-					//  ***** I removed the "credits" page due to the icons being different sizes, 
-					//and me just sticking with the pictos instead of bothering with resizing everything 
-					//(I tried, it just was not panning out properly)  *********
-					
-					// {
-					// 	title: 'Credits',
-					// 	styleHtmlContent: true,
-					// 	html: [
-					// 		'<h1>Credits</h1>',
-					// 		'<p class="about">Icon credits go to <a href="http://thenounproject.com/tlb" target="_blank">Thomas Le Bas</a> ',
-					// 		'and <a href="http://thenounproject.com/joe_harrison" target="_blank">Joe Harrison</a> ',
-					// 		'from the Noun Project.</p>'
-					// 		].join(""),
-					// 	cls: 'aboutPanel'
-					// }
-				],
-				flex: 1
+						scrollable: true,
+						html: ['<p>Volunteering with Teen Link is a great way to develop leadership skills, learn about community resources and get connected with other youth. For more in-depth information about colunter requirements, call 1(866)TEENLINK between 6-10 pm or check out our website.</p>',
+							'<h3>Outreach Worker</h3>',
+							'<dl>',
+							'	<dt>School & Community Liaison</dt>',
+							'	<dd>Represent Teen Link in your school and community.</dd>',
+							'	<dt>Youth Suicide Speakers Bureau Teen Educator</dt>',
+							'	<dd>Be paired with an adult trainer to give Youth Suicide Prevention Presentations (YSPPs) at schools and youth-serving community agencies throughout King County.</dd>',
+							'</dl>',
+							'<h3>Phone Worker</h3>',
+							'<p>Provide emotional support and referrals to other teens who call the Teen Link help line.</p>',
+							'<h3>Peer Advisory Board Member</h3>',
+							'<p>Be part of planning Teen Link’s future by helping to ensure that the Teen Link program remains youth-driven and attentive to the needs of young people.</p>'
+						].join("")
+					}	
+				]
 			}
+			
 		],
 		listeners: {
 			//On show event, unhides the TabBar
 			show: function() {
-				var tabBar = Ext.getCmp('main').getTabBar();
-				tabBar.setUi('aboutTabBar');
-				tabBar.show();
+				Ext.getCmp('main').getTabBar().show();
 			}
 		}
 
