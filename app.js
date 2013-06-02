@@ -18,9 +18,22 @@ Ext.application({
               'Topics'
             ],
 
-    controllers: [ 'Main', 'Home', 'Browse' ],
+    controllers: [ 'Main',
+                   'Home',
+                   'Browse'
+                 ],
 
-    views: [ 'Main', 'Home', 'Browse', 'CallTeenLink', 'About', 'Carousel', 'Topic', 'TopicInfo', 'ResourcesList', 'Resource' ],
+    views: [ 'Main',
+             'Home',
+             'Browse',
+             'CallTeenLink',
+             'About',
+             'Carousel',
+             'Topic',
+             'TopicInfo',
+             'ResourcesList',
+             'Resource'
+           ],
 
     icon: {
         '57': 'resources/icons/Icon.png',
