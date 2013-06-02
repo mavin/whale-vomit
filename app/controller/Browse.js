@@ -37,11 +37,12 @@ Ext.define('WTTFT.controller.Browse', {
             topic.getAt(1).setData(record.data);
             carItems.push(topic);
         });
+
         this.getBrowse().push({
             xtype: 'flipview',
             items: carItems,
+            itemCls: 'topicCar',
             activeItem: index,
-
             navigationBar: {
                 items: [
                     {
@@ -57,7 +58,7 @@ Ext.define('WTTFT.controller.Browse', {
         var sto = Ext.getStore('resourceStore');
         sto.clearFilter();
         sto.filter([{filterFn: function(item) {
-            return item.get("topic_id").indexOf(button.getData()['id']) >= 0; 
+            return item.get("topic_id").indexOf(button.getData()['id']) >= 0;
         }}]);
         var resourcesList = Ext.create('WTTFT.view.ResourcesList');
         resourcesList.getAt(0).setStore(sto);
@@ -72,6 +73,7 @@ Ext.define('WTTFT.controller.Browse', {
             resource.setData(record.data);
             carItems.push(resource);
         });
+
         this.getBrowse().push({
             xtype: 'flipview',
             items: carItems,
