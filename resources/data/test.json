@@ -2,34 +2,51 @@
 	"topics": [
 		{ 
 			"id": 1, 
-			"name": "My first topicStore" 
-			},
+			"name": "AIDS/HIV/STIs" ,
+			"quote": "Each year, between 13 and 15 million new cases of sexually transmitted infections (STIs) are diagnosed in the U.S. Approximately one quarter of these cases are in teens ages 15 to 19 - that means one out of every eight adolescents contracts an STI. (Medical Information Organization)",
+			"content": "<p>Many teens are unaware of the dangers associated with STIs and how to prevent or identify them. Talking with your partner about STIs and getting tested regularly are important parts of being sexually active. Myths exist regarding all STIs, but especially Human Immunodeficiency Virus (HIV) and Acquired Immune Deficiency Syndrome (AIDS). You cannot get HIV from hugging, drinking out of a shared glass, or using a public toilet. There are three primary ways of contracting HIV:</p><ol><li>Unprotected sex with an infected individual</li><li>Sharing needles</li><li>From mother to unborn child</li>"
+		},
 		{ 
 			"id": 2, 
-			"name": "Another one in the list" 
-			},
+			"name": "ALCOHOL & DRUGS",
+			"quote": "According to research by the National Institute on Alcohol Abuse and Alcoholism, adolescents who begin drinking before age 15 are four times more likely to develop alcohol dependence than those who begin drinking at age 21.",
+			"content": "<p>Warning signs of alcohol and drug dependency/abuse include:</p><ul><li>Getting drunk/high frequently</li><li>Lying about alcohol/drug use</li><li>Blacking out and experiencing lapses in memory</li><li>Believing that alcohol/drugs are necessary to have fun</li></ul><p>Alcohol and drugs impair judgment and can lead to risky behaviors that put lives in danger.</p>"
+		},
 		{ 
 			"id": 3, 
-			"name": "How about this topic", 
-			"quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur laoreet pulvinar justo in malesuada. Phasellus vitae neque sit amet ligula ornare vestibulum. Aliquam tincidunt porta leo, ut luctus ipsum laoreet euismod. Fusce est lectus, vulputate ut interdum quis, tincidunt non risus. In sed ligula elit.", 
-			"content" : "Suspendisse semper adipiscing ligula, quis fermentum enim vestibulum vel. Phasellus ultricies imperdiet justo, imperdiet convallis ligula congue id. Mauris quis lacus urna. Curabitur dignissim adipiscing justo, ac sollicitudin sem volutpat vel. Morbi et mi et augue porttitor cons" },
+			"name": "CHILD ABUSE", 
+			"quote": "Children who experience child abuse and neglect are 30% more likely to commit a violent crime. (Teenage Research Unlimited)", 
+			"content" : "<p>There are four primary types of child abuse:</p><ul><li>Physical abuse</li><li>Sexual abuse</li><li>Emotional abuse</li><li>Neglect</li></ul><p>While the first two categories get the most attention, neglect is the most common form of child abuse, accounting for more than 60 percent of all cases of child maltreatment. No child or youth deserves to be abused.</p>" },
 		{ 
 			"id": 4, 
-			"name": "Hello" },
+			"name": "DATING & DOMESTIC VIOLENCE",
+			"quote": "Estimates from national studies of teen dating indicate that 28% of teen relationships involve violence.",
+			"content": "<p>Dating violence is any form of emotional, verbal, psychological, physical, or sexual abuse by a romantic partner. Victims often experience abuse that gets more severe over time as the abuser tries to control or dominate them.</p><p>Characteristics of an abusive relationship can include:</p><ul><li>Jealousy and possessiveness</li><li>Name-calling and putdowns</li><li>Controlling behavior</li><li>Pressure to engage in activities (sexual or other)</li><li>Physical threats to hurt you or themselves</li><li>Choking, hitting, or other injurious behavior</li></ul><p>Fear, threats, shame, and the belief that an abuser’s behavior will change often contribute to the victim feeling unsure about talking to someone about his or her situation. It is important to remember that there is help available. No one deserves to feel unsafe in a romantic relationship.</p>"
+		},
 		{ 
 			"id": 5, 
-			"name": "Hello again" 
-		}
+			"name": "RAPE & SEXUAL ASSAULT",
+			"quote": "Approximately 44% of people who are victims of a sexual assault are under the age of 18. (Harborview Center for Sexual Assault and Traumatic Stress)",
+			"content": "<p>Due to the violence that often accompanies a rape or sexual assault, it is important for a victim to go to the emergency department of their local hospital to be examined for injuries. At the hospital, a social worker will discuss a victim’s options, including that of evidence collection. Because of this, it is helpful if the victim does not shower, clean up or change clothes before having an exam, as doing so may remove any remaining evidence. Additionally, the doctor can discuss medications that are available to reduce the chances of contracting a sexually transmitted infection (STI) or getting pregnant. If the victim is under the age of 18, the law requires the police to be notified.</p><p>However, going to the hospital and submitting a report does not necessarily mean that charges must be filed against the perpetrator or that participation in a legal case must occur. Counselors can talk about available alternatives and help the victim decide what the best choice is going to be for the individual.</p>" 		}
 	],
 	"resources": [
-		{ "id": 1, "name": "one - belongs to 1 and 3", "topic_id": [1,3], "phone": "123-456-7890", "website": "http://example.com" },
-        { "id": 2, "name": "two - belongs to 2", "topic_id": [2], "phone": "800-111-7890", "website": "http://another.com" },
-        { "id": 3, "name": "ghree - belongs to 2 and 1", "topic_id": [2,1], "website": "http://agency.com" },
-        { "id": 5, "name": "jive - belongs to 1 and 3", "topic_id": [1,3], "phone": "111-222-3333" },
-        { "id": 4, "name": "four - belongs to 3", "topic_id": [3], "phone": "890-567-1234"},
-        { "id": 6, "name": "size - belongs to 1 and 3", "topic_id": [1,3], "phone": "444-555-6666"},
-        { "id": 7, "name": "seven - belongs to 3", "topic_id": [3], "phone": "777-888-9999"},
-        { "id": 8, "name": "teight - belongs to 4", "topic_id": [4], "phone": "1-800-623-7523", "website": "http://help.com" },
-        { "id": 9, "name": "nine - belongs to 5", "topic_id": [5], "phone": "7234-7542-2543", "website": "http://test.com" }
+		{ "id": 1, "name": "Lifelong AIDS Alliance", "topic_id": [1], "phone": "(206) 329-6923", "website": "www.lifelongaidsalliance.org" },
+		{ "id": 2, "name": "People of Color Against AIDS Network (POCAAN)", "topic_id": [1], "phone": "(206) 322-7061", "website": "www.pocaan.org" },
+		{ "id": 3, "name": "Planned Parenthood", "topic_id": [1], "phone": "1(800) 230-PLAN", "website": "www.ppww.org" },
+		{ "id": 4, "name": "Public Health STD Clinic at Harborview", "topic_id": [1], "phone": "(206) 731-3590"},
+		{ "id": 5, "name": "Planned Parenthood", "topic_id": [1], "phone": "1(800) 230-PLAN", "website": "www.ppww.org" },
+		{ "id": 6, "name": "Alcohol & Drug 24-Hour Helpline", "topic_id": [2], "phone": "1(800) 562-1240", "website": "www.adhl.org" },
+		{ "id": 7, "name": "Alateen & Alanon", "topic_id": [2], "phone": "(206) 625-0000)", "website": "www.seattle-al-anon.org" },
+		{ "id": 8, "name": "Alcoholics Anonymous", "topic_id": [2], "phone": "(206) 587-2838", "website": "www.seattleaa.org" },
+		{ "id": 9, "name": "Childhelp USA - National Child Abuse Hotline", "topic_id": [3], "phone": "1(800) 422-4453" },
+		{ "id": 10, "name": "End Harm - Child Protective Services", "topic_id": [3], "phone": "1(866) 363-4276" },
+		{ "id": 11, "name": "Police Department Emergency Number", "topic_id": [3,4,5], "phone": "911" },
+		{ "id": 12, "name": "Communities Against Rape & Abuse (CARA)", "topic_id": [4,5], "phone": "(206) 322-4856", "website": "www.cara-seattle.org" },
+		{ "id": 13, "name": "Domestic Violence Recorded Information Line", "topic_id": [4], "phone": "(206) 205-5555" },
+		{ "id": 14, "name": "Washington State Domestic Violence Hotline (24 Hours)", "topic_id": [4], "phone": "1(800) 562-6025" },
+
+
+		{ "id": 15, "name": "Harborview Center for Sexual Assault & Traumatic Stress", "topic_id": [5], "phone": "(206) 744-1600", "website": "www.harborview.org" },
+		{ "id": 16, "name": "Child Protective Services (24 Hours)", "topic_id": [5], "phone": "1(866) 363-4276", "website": "www.dshs.wa.gov" }
 	]
 }
