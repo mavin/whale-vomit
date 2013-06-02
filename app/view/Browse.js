@@ -17,14 +17,11 @@ Ext.define('WTTFT.view.Browse', {
 
 		items: [
             {
-            	xtype: 'list',
-            	title: 'Find Help',
-
-        		itemTpl: '{name}',
-
+                xtype: 'list',
+                title: 'Find Help',
+                itemTpl: '{name}',
 				grouped: true,
 				indexBar: true,
-
 				store: 'topicStore'
             }
             // ,{
