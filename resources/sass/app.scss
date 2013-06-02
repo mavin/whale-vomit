@@ -44,8 +44,8 @@ $list-header-bg-color: $base-color; //the grouping headers -- set to the be iden
 
 //toolbar and tabbar ui's
 
-@include sencha-toolbar-ui('callTeenLink', #78FF0A, 'matte'); //darken(#78FF0A, 10), 'matte');
-@include sencha-tabbar-ui('callTabBar', #78FF0A, 'matte', $active-color); //darken(#78FF0A, 10), 'matte', $active-color);
+@include sencha-toolbar-ui('callTeenLink', darken(#78FF0A, 10), 'matte'); //darken(#78FF0A, 10), 'matte');
+@include sencha-tabbar-ui('callTabBar', darken(#78FF0A, 10), 'matte', $active-color); //darken(#78FF0A, 10), 'matte', $active-color);
 
 @include sencha-toolbar-ui('aboutTeenLink', #97d5dc, 'matte');
 @include sencha-tabbar-ui('aboutTabBar', #97d5dc, 'matte', $active-color);
