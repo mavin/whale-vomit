@@ -27,6 +27,7 @@ Ext.define('WTTFT.controller.Browse', {
         }
     },
 
+    // 
     showTopic: function(list, index, element, record) {
         store = list.getStore();
         carItems = [];
@@ -53,10 +54,11 @@ Ext.define('WTTFT.controller.Browse', {
     },
 
     showResources: function(button, e, eOpts) {
-        // var topic = button.getData();
         var sto = Ext.getStore('resourceStore');
         sto.clearFilter();
-        sto.filter('topic_id', button.getData()['id']);
+        sto.filter([{filterFn: function(item) {
+            return item.get("topic_id").indexOf(button.getData()['id']) >= 0; 
+        }}]);
         var resourcesList = Ext.create('WTTFT.view.ResourcesList');
         resourcesList.getAt(0).setStore(sto);
         this.getBrowse().push(resourcesList);

@@ -5,7 +5,7 @@ Ext.define('WTTFT.model.Resource', {
 		fields: [
 			{ name: 'id', type: 'int' },
 			{ name: 'name', type: 'string' },
-			{ name: 'topic_id', type: 'int' },
+			{ name: 'topic_id', type: 'auto' },
 			{ name: 'phone', type: 'string' },
 			{ name: 'website', type: 'string' }
 			// { name: 'agencyName', type: 'string' },

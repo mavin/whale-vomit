@@ -46,7 +46,9 @@ Ext.define('WTTFT.view.Browse', {
 		listeners: {
 			//On show event, unhides the TabBar
 			show: function() {
-				Ext.getCmp('main').getTabBar().show();
+                var tabBar = Ext.getCmp('main').getTabBar();
+                tabBar.setUi('dark');
+                tabBar.show();
 			}
 		}
 	}
