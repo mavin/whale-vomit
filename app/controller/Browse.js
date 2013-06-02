@@ -5,50 +5,37 @@ Ext.define('WTTFT.controller.Browse', {
         refs: {
             main: 'main',
             browse: 'browse',
-            list: 'browse list',
+            topicList: 'browse > list',
+            resourcesButton: 'button[text="Resources"]',
+            resourcesList: 'resourceslist > list'
         },
         control: {
-            '#browseSearch' : {  //  the id or itemId we gave our searchfield  
-                scope: this,  
-                clearicontap: this.onSearchClearIconTap,  
-                keyup: this.onSearchKeyUp  
+            // '#browseSearch' : {  //  the id or itemId we gave our searchfield  
+            //     scope: this,  
+            //     clearicontap: this.onSearchClearIconTap,  
+            //     keyup: this.onSearchKeyUp  
+            // },
+            topicList : {
+                itemtap: 'showTopic'
             },
-            list : {
+            resourcesButton: {
+                tap: 'showResources'
+            },
+            resourcesList : {
                 itemtap: 'showResource'
-            },
+            }
         }
     },
 
-    showResource: function(list, index, element, record) {
+    // 
+    showTopic: function(list, index, element, record) {
         store = list.getStore();
         carItems = [];
         store.each(function(record){
-
-            //using regex to delete all non-digits in the phone numbers, to allow for on tap calling
-            //The raw phone number is still visible on the screen (it is not the same however, as when
-            //you tap the phone number), in case an extension exists
-            var regex = new RegExp(/[^0-9]/g);
-            var phoneNum = record.get('phone');
-            var sanitizedPhone = phoneNum.replace(regex, '');
-            
-
-            carItems.push({
-                xtype: 'panel',
-                cls: 'resourceContainer',
-                html:   [
-                            '<h1 class="carResource resource-agency-name">' + record.get('agencyName') + '</h1>',
-                            '<p class="carResource resource-address1">Address: '+ record.get('address1') +'</p>',
-                            '<p class="carResource resource-address2">' + record.get('address2') +'</p>',
-                            '<p class="carResource resource-phone">Phone #: <a href="tel:'+sanitizedPhone+'">'+phoneNum+'</a>',
-                            '<img class="carResourceHelp" src="../WTTFT/touch/resources/themes/images/default/pictos/help_black.png"></p>',
-                            '<p class="carResource resource-service-website"><a href="'+record.get('serviceWebsite')+'">' + record.get('serviceWebsite') +'</a></p>',
-                            '<p class="carResource resource-description">About:'+record.get('description') +'</p>'
-                        ].join("")
-            });
-
-            //<h1 class="carResource resource-service-name">' + record.get('serviceName') + '</h1> \
-            // <p class="carResource resource-agency-website">' + record.get('agencyWebsite') +'</p> \
-
+            var topic = Ext.create('WTTFT.view.Topic');
+            topic.getAt(0).setData(record.data);
+            topic.getAt(1).setData(record.data);
+            carItems.push(topic);
         });
         this.getBrowse().push({
             xtype: 'flipview',
@@ -62,22 +49,46 @@ Ext.define('WTTFT.controller.Browse', {
                         align: 'right'
                     }
                 ]
-            },
-            listeners: [
-                {
-                    element: 'element',
-                    delegate: '.carResourceHelp',
-                    event: 'tap',
-                    fn: function() {
-                        console.log("the resource helper icon has been pressed");
-                    }
-                }
-            ]
+            }
         });
-
     },
 
-    // THIS IS ALL USELESS FOR THE MOMENT
+    showResources: function(button, e, eOpts) {
+        var sto = Ext.getStore('resourceStore');
+        sto.clearFilter();
+        sto.filter([{filterFn: function(item) {
+            return item.get("topic_id").indexOf(button.getData()['id']) >= 0; 
+        }}]);
+        var resourcesList = Ext.create('WTTFT.view.ResourcesList');
+        resourcesList.getAt(0).setStore(sto);
+        this.getBrowse().push(resourcesList);
+    },
+
+    showResource: function(list, index, element, record) {
+        store = list.getStore();
+        carItems = [];
+        store.each(function(record){
+            var resource = Ext.create('WTTFT.view.Resource');
+            resource.setData(record.data);
+            carItems.push(resource);
+        });
+        this.getBrowse().push({
+            xtype: 'flipview',
+            items: carItems,
+            activeItem: index,
+
+            navigationBar: {
+                items: [
+                    {
+                        text: 'text',
+                        align: 'right'
+                    }
+                ]
+            }
+        });
+    },
+
+    // THIS IS ALL USELESS SEARCH STUFF FOR THE MOMENT
     // Leaving it in for future use
     // onSearchKeyUp: function(field) {  
     //     console.log("searching now");
@@ -138,6 +149,4 @@ Ext.define('WTTFT.controller.Browse', {
         //call the clearFilter method on the store instance  
         Ext.getCmp('resourceStore').getStore().clearFilter();  
     }  
-
-
 });
