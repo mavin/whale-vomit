@@ -44,8 +44,6 @@
 		{ "id": 12, "name": "Communities Against Rape & Abuse (CARA)", "topic_id": [4,5], "phone": "(206) 322-4856", "website": "www.cara-seattle.org" },
 		{ "id": 13, "name": "Domestic Violence Recorded Information Line", "topic_id": [4], "phone": "(206) 205-5555" },
 		{ "id": 14, "name": "Washington State Domestic Violence Hotline (24 Hours)", "topic_id": [4], "phone": "1(800) 562-6025" },
-
-
 		{ "id": 15, "name": "Harborview Center for Sexual Assault & Traumatic Stress", "topic_id": [5], "phone": "(206) 744-1600", "website": "www.harborview.org" },
 		{ "id": 16, "name": "Child Protective Services (24 Hours)", "topic_id": [5], "phone": "1(866) 363-4276", "website": "www.dshs.wa.gov" }
 	]

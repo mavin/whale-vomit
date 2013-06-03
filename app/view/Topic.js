@@ -19,6 +19,15 @@ Ext.define('WTTFT.view.Topic', {
 				xtype: 'button',
 				text: 'Resources'
 			}
-		]
+		],
+
+        navigationBar: {
+            items: [
+                {
+                    text: 'topic',
+                    align: 'right'
+                }
+            ]
+        }
 	}	
 });

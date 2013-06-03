@@ -41,14 +41,10 @@ Ext.define('WTTFT.controller.Browse', {
             xtype: 'flipview',
             items: carItems,
             activeItem: index,
-
-            navigationBar: {
-                items: [
-                    {
-                        text: 'text',
-                        align: 'right'
-                    }
-                ]
+            id: 'topicCar',
+            listeners: {
+                activate: setTopicCounter,
+                activeitemchange: setTopicCounter
             }
         });
     },
@@ -57,6 +53,7 @@ Ext.define('WTTFT.controller.Browse', {
         var sto = Ext.getStore('resourceStore');
         sto.clearFilter();
         sto.filter([{filterFn: function(item) {
+            // if the item has that resource's id in its topic_id array, return true
             return item.get("topic_id").indexOf(button.getData()['id']) >= 0; 
         }}]);
         var resourcesList = Ext.create('WTTFT.view.ResourcesList');
@@ -76,14 +73,10 @@ Ext.define('WTTFT.controller.Browse', {
             xtype: 'flipview',
             items: carItems,
             activeItem: index,
-
-            navigationBar: {
-                items: [
-                    {
-                        text: 'text',
-                        align: 'right'
-                    }
-                ]
+            id: 'resourceCar',
+            listeners: {
+                activate: setResourceCounter,
+                activeitemchange: setResourceCounter
             }
         });
     },
@@ -150,3 +143,11 @@ Ext.define('WTTFT.controller.Browse', {
         Ext.getCmp('resourceStore').getStore().clearFilter();  
     }  
 });
+
+var setTopicCounter = function() {
+    Ext.get('topicCounter').setText((this.getItems()['items'].indexOf(this.getActiveItem())+1) + "/" + this.getItems().length);
+}
+
+var setResourceCounter = function() {
+    Ext.get('resourceCounter').setText((this.getItems()['items'].indexOf(this.getActiveItem())+1) + "/" + this.getItems().length);
+}
