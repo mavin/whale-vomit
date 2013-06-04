@@ -12,27 +12,55 @@ Ext.define('WTTFT.view.About', {
 			{
 				xtype: 'titlebar',
 				docked: 'top',
-				title: 'About'
+				title: 'About',
+				ui: 'aboutTeenLink',
 			},
 			{
 				xtype: 'tabpanel',
+				id: 'aboutToolBar',
+				ui: 'aboutTabBar',
 				items: [
 					{
 						title: 'The App',
+						cls: 'aboutPanel',
+						styleHtmlContent: true,
 						scrollable: true,
-						html: '<p>The two ways to look up information in the WTTFT app are through the Search or by browsing the topics listed. With search you can use a term or a specific agency.</p>'
+						html: [
+							'<div class="about">',
+							'<h1>The WTTFT App</h1>',
+							'<p>The way to look up information in the WTTFT app is by browsing the topics ',
+							'listed, and clicking on the "show resources" button found within each topic.</p>',
+							'</div>'
+							].join("")
 					},
 					{
 						title: 'Teen Link',
+						cls: 'aboutPanel',
 						scrollable: true,
-						html: ['<img src = "/WTTFT/resources/images/teenlink_logo.png" style = "float:left;"/>',
-							'<p>Teen Link is a confidential, annoymus and non-judgemental telepone help line answered by teens each evening from 6-10 pm. Teen volunteers are trained to listen to your concerns and to talk with you about whatever is on your mind. No issue is too big or too small. Phone workers also have access to an extensive databse and can give you information on agencies serving youth the the King County area.</p>'
-						].join("")
+						styleHtmlContent: true,
+						html: ['<img class="teenLinkLogo" src="/WTTFT/resources/images/teenlink_logo.png"/>',
+							'<div class="about aboutDescription ">',
+							'<p>Teen Link is a confidential, anonymous, and non-judgemental ',
+							'telephone help line answered by teens each evening from 6-10 pm. ',
+							'Teen volunteers are trained to listen to your concerns and to talk with ',
+							'you about whatever is on your mind. No issue is too big or too small. ',
+							'Phone workers also have access to an extensive database and can give you ',
+							'information on agencies serving youth in the King County area.</p>',
+							'</div>'
+							].join("")
 					},
 					{
 						title: 'Volunteering',
+						cls: 'aboutPanel',
 						scrollable: true,
-						html: ['<p>Volunteering with Teen Link is a great way to develop leadership skills, learn about community resources and get connected with other youth. For more in-depth information about colunter requirements, call 1(866)TEENLINK between 6-10 pm or check out our website.</p>',
+						styleHtmlContent: true,
+						html: [
+							'<div class="about">',
+							'<h1>Volunteer Positions</h1>',
+							'<p>Volunteering with Teen Link is a great way to develop leadership skills,',
+							' learn about community resources and get connected with other youth. ',
+							'For more in-depth information about volunteer requirements, please call <a href="tel:+18668336546">1-(866)TEENLINK</a>',
+							' between 6-10 pm or <a href="http://www.866teenlink.org/">check out our website</a>.</p>',
 							'<h3>Outreach Worker</h3>',
 							'<dl>',
 							'	<dt>School & Community Liaison</dt>',
@@ -43,7 +71,8 @@ Ext.define('WTTFT.view.About', {
 							'<h3>Phone Worker</h3>',
 							'<p>Provide emotional support and referrals to other teens who call the Teen Link help line.</p>',
 							'<h3>Peer Advisory Board Member</h3>',
-							'<p>Be part of planning Teen Link’s future by helping to ensure that the Teen Link program remains youth-driven and attentive to the needs of young people.</p>'
+							'<p>Be part of planning Teen Link’s future by helping to ensure that the Teen Link program remains youth-driven and attentive to the needs of young people.</p>',
+							'</div>'
 						].join("")
 					}	
 				]
@@ -53,7 +82,13 @@ Ext.define('WTTFT.view.About', {
 		listeners: {
 			//On show event, unhides the TabBar
 			show: function() {
-				Ext.getCmp('main').getTabBar().show();
+				//sets the active item in the toolbar to "The App" upon button tap 
+				Ext.getCmp('aboutToolBar').setActiveItem(0);
+
+				//changes the theme to the baby blue upon showing
+				var tabBar = Ext.getCmp('main').getTabBar();
+				tabBar.setUi('aboutTabBar');
+				tabBar.show();
 			}
 		}
 

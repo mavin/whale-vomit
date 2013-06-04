@@ -47,8 +47,8 @@ $list-header-bg-color: $base-color; //the grouping headers -- set to the be iden
 @include sencha-toolbar-ui('callTeenLink', darken(#78FF0A, 10), 'matte'); //darken(#78FF0A, 10), 'matte');
 @include sencha-tabbar-ui('callTabBar', darken(#78FF0A, 10), 'matte', $active-color); //darken(#78FF0A, 10), 'matte', $active-color);
 
-@include sencha-toolbar-ui('aboutTeenLink', #97d5dc, 'matte');
-@include sencha-tabbar-ui('aboutTabBar', #97d5dc, 'matte', $active-color);
+@include sencha-toolbar-ui('aboutTeenLink', darken(#97d5dc, 10), 'matte');
+@include sencha-tabbar-ui('aboutTabBar', darken(#97d5dc, 10), 'matte', $active-color);
 
 
 
@@ -68,7 +68,7 @@ $list-header-bg-color: $base-color; //the grouping headers -- set to the be iden
 }
 
 //applies the gridlike background to the about and call pages
-.aboutPanel, .callPanel, #resourceCar {
+.aboutPanel, .callPanel {
 	background: url("../images/background.jpg") no-repeat center;
 }
 
@@ -82,13 +82,26 @@ $list-header-bg-color: $base-color; //the grouping headers -- set to the be iden
 	padding-right: 5px;
 }
 
-//Provides the transparent white background behind paragraph text on the home, about, and call pages
-.homeDescription p, .about, .callText {
+//Provides the transparent white background behind paragraph text on the home
+.homeDescription p {
 	font-size: 13px;
 	text-align: justify;
 	background: rgba(255, 255, 255, .6);
 	padding-right: 5px;
 	padding-left: 5px;
+}
+
+//Provides the transparent white background behind paragraph text on the home, about, and call pages
+ .about, .callText {
+	background: rgba(255, 255, 255, .6);
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+//for the About Teen Link page
+.teenLinkLogo {
+	float: left;
+	padding: 5px 10px 5px 5px;
 }
 
 

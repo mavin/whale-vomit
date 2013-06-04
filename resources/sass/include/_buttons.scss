@@ -25,5 +25,5 @@
 }
 
 .blue {
-	@include wttft-button(#97d5dc);
+	@include wttft-button(darken(#97d5dc, 10));
 }
