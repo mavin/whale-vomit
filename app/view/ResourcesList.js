@@ -6,6 +6,7 @@ Ext.define('WTTFT.view.ResourcesList', {
 
 		navigationBar: false,
         title: 'Find Help',
+        id: 'resourceList',
 
 		items: [
             {
@@ -16,20 +17,6 @@ Ext.define('WTTFT.view.ResourcesList', {
 				grouped: true,
 				indexBar: true
             }
-            // ,{
-            //     xtype: 'toolbar',
-            //     docked: 'bottom',
-
-            //     items: [
-            //         { xtype: 'spacer' },
-            //         {
-            //             xtype: 'searchfield',
-            //             placeHolder: 'Search...',
-            //             id: 'browseSearch'
-            //         },
-            //         { xtype: 'spacer' }
-            //     ]
-            // }
 		]
 	}
 });

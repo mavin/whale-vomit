@@ -8,15 +8,33 @@ Ext.Loader.setPath({
 Ext.application({
     name: 'WTTFT',
 
-    requires: [ 'Ext.MessageBox' ],
+    requires: [ 'Ext.MessageBox', 'Ext.dataview.List' ],
 
-    models: [ 'Resource', 'Topic' ],
+    models: [ 'Resource',
+              'Topic'
+            ],
 
-    stores: [ 'Resources', 'Topics' ],
+    stores: [ 'Resources',
+              'Topics'
+            ],
 
-    controllers: [ 'Main', 'Home', 'Browse' ],
+    controllers: [ 'Main',
+                   'Home',
+                   'Browse'
+                 ],
 
-    views: [ 'Main', 'Home', 'Browse', 'CallTeenLink', 'About', 'Carousel', 'Topic', 'TopicInfo', 'ResourcesList', 'Resource' ],
+    views: [ 'Main',
+             'Home',
+             'Browse',
+             'CallTeenLink',
+             'About',
+             'Carousel',
+             'Topic',
+             'TopicInfo',
+             'TopicsList',
+             'ResourcesList',
+             'Resource'
+           ],
 
     icon: {
         '57': 'resources/icons/Icon.png',

@@ -5,16 +5,20 @@ Ext.define('WTTFT.controller.Browse', {
         refs: {
             main: 'main',
             browse: 'browse',
-            topicList: 'browse > list',
+            toggleSearch: '#toggleSearch',
+            searchField: '#searchField',
+            topicList: 'topicslist > list',
             resourcesButton: 'button[text="Resources"]',
             resourcesList: 'resourceslist > list'
         },
         control: {
-            // '#browseSearch' : {  //  the id or itemId we gave our searchfield  
-            //     scope: this,  
-            //     clearicontap: this.onSearchClearIconTap,  
-            //     keyup: this.onSearchKeyUp  
-            // },
+            searchField : {
+                clearicontap: 'onSearchClearIconTap',  
+                keyup: 'onSearchKeyUp'  
+            },
+            toggleSearch: {
+                tap: 'toggleSearch'
+            },
             topicList : {
                 itemtap: 'showTopic'
             },
@@ -27,7 +31,18 @@ Ext.define('WTTFT.controller.Browse', {
         }
     },
 
-    // 
+    toggleSearch: function(button, e, eOpts) {
+        var search = Ext.getCmp('searchBar');
+        var toggleSearch = Ext.getCmp('toggleSearch');
+        if(search.getHidden()) {
+            search.show();
+            toggleSearch.setIconCls('clear');
+        } else {
+            search.hide();
+            toggleSearch.setIconCls('search');
+        }
+    },
+
     showTopic: function(list, index, element, record) {
         store = list.getStore();
         carItems = [];
@@ -37,9 +52,11 @@ Ext.define('WTTFT.controller.Browse', {
             topic.getAt(1).setData(record.data);
             carItems.push(topic);
         });
+
         this.getBrowse().push({
             xtype: 'flipview',
             items: carItems,
+            itemCls: 'topicCar',
             activeItem: index,
             id: 'topicCar',
             listeners: {
@@ -69,6 +86,7 @@ Ext.define('WTTFT.controller.Browse', {
             resource.setData(record.data);
             carItems.push(resource);
         });
+
         this.getBrowse().push({
             xtype: 'flipview',
             items: carItems,
@@ -81,58 +99,30 @@ Ext.define('WTTFT.controller.Browse', {
         });
     },
 
-    // THIS IS ALL USELESS SEARCH STUFF FOR THE MOMENT
-    // Leaving it in for future use
-    // onSearchKeyUp: function(field) {  
-    //     console.log("searching now");
-    //     //get the store and the value of the field  
-    //     var value = field.getValue(),  
-    //     store = this.getResourceStore();    //  getting the store that drives the contact list  
-  
-    //     //first clear any current filters on thes tore  
-    //     store.clearFilter();  
-  
-    //     //check if a value is set first, as if it isnt we dont have to do anything  
-    //     if (value) {  
-    //         //the user could have entered spaces, so we must split them so we can loop through them all  
-    //         var searches = value.split(' '),  
-    //         regexps = [],  
-    //         i;  
-  
-    //         //loop them all  
-    //         for (i = 0; i < searches.length; i++) {  
-    //             //if it is nothing, continue  
-    //             if (!searches[i]) continue;  
-  
-    //             //if found, create a new regular expression which is case insenstive  
-    //             regexps.push(new RegExp(searches[i], 'i'));  
-    //         }  
-  
-    //         //now filter the store by passing a method  
-    //         //the passed method will be called for each record in the store  
-    //         store.filter(function(record) {  
-    //             var matched = [];  
 
-    //             //loop through each of the regular expressions  
-    //             for (i = 0; i < regexps.length; i++) {  
-    //                 var search = regexps[i],  
-    //                 didMatch = record.get('agencyName').match(search) ||  
-    //                             record.get('serviceName').match(search);  
+    onSearchKeyUp: function(field) {  
+        //get the store and the value of the field  
+        var values = field.getValue(),
+            store = Ext.getStore('topicStore');    //  getting the store that drives the contact list  
 
-    //                 //if it matched the first or last name, push it into the matches array  
-    //                 matched.push(didMatch);  
+        if(values) {
+            var searches = values.split(' '),
+                regexes = [];
 
-    //             }  //if nothing was found, return false (dont so in the store)                 
+            for (var i = 0; i < searches.length; i++) {
+                regexes.push(new RegExp(searches[i], 'i'));
+            };
 
-    //             if (regexps.length > 1 && matched.indexOf(false) != -1) {  
-    //                 return false;  
-    //             } else {  
-    //                 //else true true (show in the store)  
-    //                 return matched[0];  
-    //             }  
-    //         });  
-    //     }  
-    // },  
+            store.clearFilter();  
+            store.filterBy(function(record) {
+                for(var i = 0; i < regexes.length; i++) {
+                    if(!record.get("name").match(regexes[i]))
+                        return false;
+                }
+                return true;
+            });
+        }
+    },  
   
     /** 
      * Called when the user taps on the clear icon in the search field. 
@@ -140,7 +130,7 @@ Ext.define('WTTFT.controller.Browse', {
      */  
     onSearchClearIconTap: function() {  
         //call the clearFilter method on the store instance  
-        Ext.getCmp('resourceStore').getStore().clearFilter();  
+        Ext.getStore('topicStore').clearFilter();  
     }  
 });
 

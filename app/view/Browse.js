@@ -8,10 +8,18 @@ Ext.define('WTTFT.view.Browse', {
 
         navigationBar: {
             items: [
+                {
+                    id: 'toggleSearch',
+                    align: 'right',
+                    hidden: true,
+                    iconCls: 'search',
+                    iconMask: true
+                },
                 {    
                     id: 'topicCounter',
                     align: 'right',
                     hidden: true,
+                    ui: 'plain',
                     hideAnimation: Ext.os.is.Android ? false : {
                         type: 'fadeOut',
                         duration: 200
@@ -26,6 +34,7 @@ Ext.define('WTTFT.view.Browse', {
                     ui: 'sencha',
                     align: 'right',
                     hidden: true,
+                    ui: 'plain',
                     hideAnimation: Ext.os.is.Android ? false : {
                         type: 'fadeOut',
                         duration: 200
@@ -40,47 +49,34 @@ Ext.define('WTTFT.view.Browse', {
 
 		items: [
             {
-            	xtype: 'list',
-            	title: 'Find Help',
-
-        		itemTpl: '{name}',
-
-				grouped: true,
-				indexBar: true,
-
-				store: 'topicStore'
+                xtype: 'topicslist'
             }
-            // ,{
-            //     xtype: 'toolbar',
-            //     docked: 'bottom',
-
-            //     items: [
-            //         { xtype: 'spacer' },
-            //         {
-            //             xtype: 'searchfield',
-            //             placeHolder: 'Search...',
-            //             id: 'browseSearch'
-            //         },
-            //         { xtype: 'spacer' }
-            //     ]
-            // }
 		],
 		
 		listeners: {
-			//On show event, unhides the TabBar
-            activeitemchange: function () {
-                Ext.get("topicCounter").hide();
-                Ext.get("resourceCounter").hide();
-                if(this.getActiveItem()['id'] == "topicCar") {
-                    Ext.get("topicCounter").show();
-                }
-                if(this.getActiveItem()['id'] == "resourceCar") {
-                    Ext.get("resourceCounter").show();
-                }
-            },
+            activate: showToolbarButton,
+            activeitemchange: showToolbarButton,
+            //On show event, unhides the TabBar
 			show: function() {
-				Ext.getCmp('main').getTabBar().show();
+                var tabBar = Ext.getCmp('main').getTabBar();
+                tabBar.setUi('dark');
+                tabBar.show();
 			}
 		}
 	}
 });
+
+function showToolbarButton() {
+    Ext.get("toggleSearch").hide();
+    Ext.get("topicCounter").hide();
+    Ext.get("resourceCounter").hide();
+    if(this.getActiveItem()['id'] == "topicList") {
+        Ext.get("toggleSearch").show();
+    }
+    if(this.getActiveItem()['id'] == "topicCar") {
+        Ext.get("topicCounter").show();
+    }
+    if (this.getActiveItem()['id'] == "resourceCar") {
+        Ext.get("resourceCounter").show();
+    }
+}

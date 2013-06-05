@@ -53,8 +53,7 @@ Ext.define('WTTFT.model.Resource', {
 		and edits from them overwrite the information we have.
 		*/
 		identifier: {
-            type: 'simple',
-            prefix: 'RID_'
+            type: 'simple'
         }
 	}
 	//associations: 
