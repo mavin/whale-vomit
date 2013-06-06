@@ -8,7 +8,12 @@ Ext.Loader.setPath({
 Ext.application({
     name: 'WTTFT',
 
-    requires: [ 'Ext.MessageBox', 'Ext.dataview.List' ],
+    requires: [ 
+        'Ext.MessageBox', 
+        'Ext.dataview.List',
+        'Ext.Img',
+        'Ext.field.Search'
+    ],
 
     models: [ 'Resource',
               'Topic'

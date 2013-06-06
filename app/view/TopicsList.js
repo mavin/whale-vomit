@@ -5,7 +5,7 @@ Ext.define('WTTFT.view.TopicsList', {
 	config: {
 
 		navigationBar: false,
-        title: 'Find Help',
+        title: 'Find Help About...',
         id: 'topicList',
 
 		items: [

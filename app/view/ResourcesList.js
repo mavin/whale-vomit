@@ -5,7 +5,7 @@ Ext.define('WTTFT.view.ResourcesList', {
 	config: {
 
 		navigationBar: false,
-        title: 'Find Help',
+        title: 'Find Help From...',
         id: 'resourceList',
 
 		items: [

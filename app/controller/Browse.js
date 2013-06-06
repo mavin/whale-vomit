@@ -8,7 +8,7 @@ Ext.define('WTTFT.controller.Browse', {
             toggleSearch: '#toggleSearch',
             searchField: '#searchField',
             topicList: 'topicslist > list',
-            resourcesButton: 'button[text="Resources"]',
+            resourcesButton: 'button[text="Find Resources"]',
             resourcesList: 'resourceslist > list'
         },
         control: {
@@ -105,6 +105,7 @@ Ext.define('WTTFT.controller.Browse', {
         var values = field.getValue(),
             store = Ext.getStore('topicStore');    //  getting the store that drives the contact list  
 
+        store.clearFilter();  
         if(values) {
             var searches = values.split(' '),
                 regexes = [];
@@ -113,7 +114,6 @@ Ext.define('WTTFT.controller.Browse', {
                 regexes.push(new RegExp(searches[i], 'i'));
             };
 
-            store.clearFilter();  
             store.filterBy(function(record) {
                 for(var i = 0; i < regexes.length; i++) {
                     if(!record.get("name").match(regexes[i]))

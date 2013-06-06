@@ -1,30 +1,30 @@
 @mixin wttft-button($color, $highlight, $border: false){
 	margin-bottom: 15px;
+	font-family: 'DIN Bold', sans-serif;
+	font-weight: normal !important;
 	font-size: 1.3em;
+	line-height: 1.3em;
 	background: $color;
 	@if $border { border: 1px solid $highlight; }
 	@else { border: none; }
 	color: white;
 	text-decoration: none;
 	align: left;
-	.x-button-label {
-		padding: 10px;
-	}
 
 	&.x-button-pressing {
 		@include background-image(radial-gradient(color-stops($color, $highlight), center center));
 	}
 }
 
-.orange {
+.wttft-button-orange {
 	@include wttft-button(#f4aa00, #ef8200, true);
 	margin-top: 15px;
 }
 
-.green {
+.wttft-button-green {
 	@include wttft-button(#bed600, #77b800, true);
 }
 
-.blue {
+.wttft-button-blue {
 	@include wttft-button(#a0dae8, #6dc6e7, true);
 }

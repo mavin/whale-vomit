@@ -11,6 +11,7 @@ Ext.define('WTTFT.view.Main', {
         pack: 'center',
         items: [
             {
+                title: '',
                 xtype: 'homepanel',
                 listeners: {
                     //whenever the home icon in the tabPanel is activated, the tabPanel will be hidden.
@@ -20,12 +21,15 @@ Ext.define('WTTFT.view.Main', {
                 }
             },
             {
+                title: '',
                 xtype: 'browse'
             },
             {
+                title: '',
                 xtype: 'callteenlinkpanel'
             },
             {
+                title: '',
                 xtype: 'aboutpanel'
             }
         ],

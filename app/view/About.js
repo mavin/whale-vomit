@@ -21,15 +21,19 @@ Ext.define('WTTFT.view.About', {
 				ui: 'aboutTabBar',
 				items: [
 					{
-						title: 'The App',
+						title: 'Using the App',
 						cls: 'aboutPanel',
 						styleHtmlContent: true,
 						scrollable: true,
 						html: [
 							'<div class="about">',
-							'<h1>The WTTFT App</h1>',
-							'<p>The way to look up information in the WTTFT app is by browsing the topics ',
-							'listed, and clicking on the "show resources" button found within each topic.</p>',
+							'<h1>Where To Turn For Teens</h1>',
+							'<h2>The Mobile Application</h2>',
+							'<ol>',
+							'<li>Find a topic to learn about</li>',
+							'<li>Find a resource who can help you</li>',
+							'<li>Connect with them over the phone, online, or in person</li>',
+							'</ol>',
 							'</div>'
 							].join("")
 					},

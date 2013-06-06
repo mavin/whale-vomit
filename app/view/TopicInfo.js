@@ -3,7 +3,7 @@ Ext.define('WTTFT.view.TopicInfo', {
 	xtype: 'topicinfo',
 
 	config: {
-		tpl: ['<h1>{name}</h1><p>{quote}</p><p>{content}</p>'],
+		tpl: ['<h1>{name}</h1><div class = "quote"><p>{quote}</p></div><div class = "content"><p>{content}</p></div>'],
 	    styleHtmlContent: true
 	}
 

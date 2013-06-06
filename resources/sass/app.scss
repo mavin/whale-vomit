@@ -84,30 +84,33 @@ $font-family: Arial, sans-serif !default;
 	color: #fff;
 }
 
+.wttft-button-orange .x-button-label,
 .x-toolbar-findHelp .x-title {
+	font-weight: normal;
 	@include text-shadow($wttft-orange-dark 0.1em -0.1em 0.05em);
 }
 
+.wttft-button-green .x-button-label,
 .x-toolbar-callTeenLink .x-title {
+	font-weight: normal;
 	@include text-shadow($wttft-green-dark 0.1em -0.1em 0.05em);
 }
 
+.wttft-button-blue .x-button-label,
 .x-toolbar-aboutTeenLink .x-title {
+	font-weight: normal;
 	@include text-shadow($wttft-blue-dark 0.1em -0.1em 0.05em);
 }
 
-.x-button-label {
-	color: #fff;
-}
-
 //home screen css -- adding the grid-like background to the panel !important because some responsive layouts override this override..
-.homePanel {
-	background: url("../images/wttft-homescreen-large.png") no-repeat center !important;
-}
+//  {
+// 	background: url("../images/wttft-homescreen-large.png") no-repeat center !important;
+// }
 
 //applies the gridlike background to the about and call pages
-.aboutPanel, .callPanel {
+.homePanel, .aboutPanel, .callPanel, .topicPanel, .resourcePanel {
 	background: url("../images/background.png") no-repeat center;
+	@include background-size(cover);
 }
 
 //The WHERE to TURN for TEENS text on the home page
@@ -200,7 +203,129 @@ $font-family: Arial, sans-serif !default;
 
 
 
+ 
 
 
 
+// -------------------------------------- BEWARE ALL YE WHO ENTER HERE ---------------------------------
+// ------------------------------------ MYTHICAL BEASTS BEYOND THIS POINT ------------------------------
+// -------------- (aka I got tired of sass and good coding style the night before capstone) ------------
 
+
+// ---tabbars and toolbars----
+
+.x-toolbar-findHelp.x-docked-top,
+.findHelp .x-list-header {
+	border-color: $wttft-orange-dark;
+}
+
+.x-toolbar-callTeenLink.x-docked-top {
+	border-color: $wttft-green-dark;
+}
+
+.x-toolbar-aboutTeenLink.x-docked-top {
+	border-color: $wttft-blue-dark;
+}
+
+.findHelp .x-list-header {
+	color: #fff;
+	@include text-shadow($wttft-orange-dark 0.2em -0.2em 0.1em);
+}
+
+.x-tabbar.x-docked-bottom .x-tab {
+	color: #fff !important;
+    padding : 0.5em;
+}
+
+.x-tabbar.x-docked-bottom .x-tab .x-button-icon {
+	margin: 0.2em auto;
+}
+
+.x-tabbar.x-docked-bottom .x-tab .x-button-label {
+    display : none;
+}
+
+.x-tabbar-findHelp.x-docked-bottom .x-tab-active {
+	@include background-image(radial-gradient(color-stops($wttft-orange 40%, $wttft-orange-dark), center center));
+}
+
+.x-tabbar-callTabBar.x-docked-bottom .x-tab-active {
+	@include background-image(radial-gradient(color-stops($wttft-green 40%, $wttft-green-dark), center center));
+}
+
+.x-tabbar-aboutTabBar.x-docked-bottom .x-tab-active,
+.x-tabbar-aboutTabBar.x-docked-top .x-tab-active {
+	color: #fff;
+	@include background-image(radial-gradient(color-stops($wttft-blue 40%, $wttft-blue-dark), center center));
+}
+
+.x-tabbar-aboutTabBar.x-docked-top .x-tab {
+	padding: 0.7em 0.8em;
+	height: 2.6em;
+}
+
+.x-toolbar-findHelp .x-button {
+	background-color: $wttft-orange;
+	border-color: $wttft-orange-dark;
+}
+
+#searchBar {
+	background: $wttft-orange-dark;
+}
+
+.x-toolbar-findHelp .x-button.x-button-pressing {
+	@include background-image(radial-gradient(color-stops($wttft-orange 40%, $wttft-orange-dark), center center));
+}
+
+.x-toolbar-findHelp .x-button.x-button-back:before, .x-toolbar-findHelp .x-button.x-button-forward:before, .x-toolbar .x-toolbar-findHelp .x-button.x-button-back:before, .x-toolbar .x-toolbar-findHelp .x-button.x-button-forward:before, .x-toolbar-findHelp .x-field-select .x-component-outer.x-button-back:before, .x-toolbar-findHelp .x-field-select .x-component-outer.x-button-forward:before, .x-toolbar .x-toolbar-findHelp .x-field-select .x-component-outer.x-button-back:before, .x-toolbar .x-toolbar-findHelp .x-field-select .x-component-outer.x-button-forward:before, .x-toolbar-findHelp .x-field-select .x-component-outer:before.x-button-back:before, .x-toolbar-findHelp .x-field-select .x-component-outer:before.x-button-forward:before, .x-toolbar .x-toolbar-findHelp .x-field-select .x-component-outer:before.x-button-back:before, .x-toolbar .x-toolbar-findHelp .x-field-select .x-component-outer:before.x-button-forward:before {
+	background: $wttft-orange-dark;
+}
+
+.x-button-forward:before, .x-button-forward:after, .x-button-back:before, .x-button-back:after {
+	background: $wttft-orange-dark;
+}
+
+// ---- content page stuff ----
+
+.callPanel .x-button .x-button-icon {
+	width: 3em;
+	height: 3em;
+	-webkit-mask-size: 3em;
+	background-color: #fff;
+}
+
+#topicCounter,
+#resourceCounter {
+	color: #fff;
+}
+
+h1, h2, h3 {
+	font-family: 'DIN Bold';
+	font-weight: normal;
+}
+
+div.quote {
+	background: rgba(252, 225, 35, .7);
+	margin: 0 -300px;
+	padding: 10px 0;
+}
+
+div.quote p {
+	width: 300px;
+	margin: 0 auto;
+}
+
+div.content {
+	background: rgba(255, 255, 255, .6);
+	padding: 15px;
+}
+
+.topicPanel .x-button {
+	background: #17bcfa;
+	border-color: #00aeef;
+	color: #fff;
+}
+
+.topicPanel .x-button.x-button-pressing {
+	@include background-image(radial-gradient(color-stops(#17bcfa 40%, #00aeef), center center));
+}
