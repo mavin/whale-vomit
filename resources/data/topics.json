@@ -35,13 +35,6 @@
         "parent" : "^Counseling"
     },
     {
-        "keyword": "^Child Abuse",
-        "title": "CHILD ABUSE",
-        "quote": "Children who experience child abuse and neglect are 30% more likely to commit a violent crime. (Teenage Research Unlimited)",
-        "content" : "<p>There are four primary types of child abuse:</p><ul><li>Physical abuse</li><li>Sexual abuse</li><li>Emotional abuse</li><li>Neglect</li></ul><p>While the first two categories get the most attention, neglect is the most common form of child abuse, accounting for more than 60 percent of all cases of child maltreatment. No child or youth deserves to be abused.</p>",
-        "parent" : "^Child Abuse"
-    },
-    {
         "keyword": "^Culturally Specific Agencies",
         "title": "CULTURALLY SPECIFIC AGENCIES",
         "quote": "",
