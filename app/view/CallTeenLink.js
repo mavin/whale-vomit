@@ -36,7 +36,7 @@ Ext.define('WTTFT.view.CallTeenLink', {
 						margin: '15% 15% 15% 15%', //positions the button properly on the page
 						height: '20%',
 						width: '70%',
-						ui: 'confirm',
+						cls: 'wttft-button green',
 			            handler:function(){
 			              document.location.href = 'tel:+8668336546'
 			            }

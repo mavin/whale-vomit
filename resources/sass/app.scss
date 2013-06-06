@@ -1,7 +1,14 @@
 //variable overrides (these affect the app as a whole):
 
-$base-color: #FF7A00; //The orangey color
+$base-color: #f4aa00; //The orangey color
+$wttft-orange: #f4aa00; 
+$wttft-orange-dark: #ef8200; 
+$wttft-green: #bed600;
+$wttft-green-dark: #77b800;
+$wttft-blue: #a0dae8;
+$wttft-blue-dark: #6dc6e7;
 $active-color: #FFFFFF; //White active colors
+$base-gradient: 'flat';
 
 
 //List overrides (these affect the list views, such as browse/find)
@@ -9,7 +16,15 @@ $active-color: #FFFFFF; //White active colors
 $list-active-color: #fce122; //the yellow color on list itemtap
 $list-header-bg-color: $base-color; //the grouping headers -- set to the be identical to the $base-color variable.
 
+$include-border-radius: false;
 
+// Importing our custom web font.
+@font-face {
+  font-family: 'DIN Bold';
+  src: url('../fonts/DINBold.ttf');
+}
+
+$font-family: Arial, sans-serif !default;
 
 //-----------------------------------------------Default Sencha Imports Go Here-----------------------------------------------------------------------
 
@@ -28,8 +43,8 @@ $list-header-bg-color: $base-color; //the grouping headers -- set to the be iden
 @include sencha-list;
 @include sencha-layout;
 @include sencha-carousel;
-@include sencha-form;
-@include sencha-msgbox;
+//@include sencha-form;
+//@include sencha-msgbox;
 
 
 
@@ -41,14 +56,18 @@ $list-header-bg-color: $base-color; //the grouping headers -- set to the be iden
 //icon images
 @include pictos-iconmask('phone1');
 @include pictos-iconmask('search2');
+@include pictos-iconmask('delete');
 
 //toolbar and tabbar ui's
 
-@include sencha-toolbar-ui('callTeenLink', darken(#78FF0A, 10), 'matte'); //darken(#78FF0A, 10), 'matte');
-@include sencha-tabbar-ui('callTabBar', darken(#78FF0A, 10), 'matte', $active-color); //darken(#78FF0A, 10), 'matte', $active-color);
+@include sencha-toolbar-ui('findHelp', $base-color, 'flat');
+@include sencha-tabbar-ui('findHelp', $base-color, 'flat', $active-color);
 
-@include sencha-toolbar-ui('aboutTeenLink', darken(#97d5dc, 10), 'matte');
-@include sencha-tabbar-ui('aboutTabBar', darken(#97d5dc, 10), 'matte', $active-color);
+@include sencha-toolbar-ui('callTeenLink', $wttft-green); //darken(#78FF0A, 10), 'matte');
+@include sencha-tabbar-ui('callTabBar', $wttft-green, 'flat', $active-color); //darken(#78FF0A, 10), 'matte', $active-color);
+
+@include sencha-toolbar-ui('aboutTeenLink', $wttft-blue);
+@include sencha-tabbar-ui('aboutTabBar', $wttft-blue, 'flat', $active-color);
 
 
 
@@ -57,9 +76,28 @@ $list-header-bg-color: $base-color; //the grouping headers -- set to the be iden
 //-----------------------------------------------Custom css goes here-----------------------------------------------------------------------
 
 //set the title in the toolbar above the listview to be a white color with a gray text-shadow color.
-.x-toolbar-dark .x-title, .x-toolbar-callTeenLink .x-title, .x-toolbar-aboutTeenLink .x-title, .x-button-label {
+.x-toolbar-findHelp .x-title, .x-toolbar-callTeenLink .x-title, .x-toolbar-aboutTeenLink .x-title {
+	font-size: 1.6em;
+	font-family: 'DIN Bold', sans-serif;
+	font-weight: normal;
+	line-height: 1.6em;
 	color: #fff;
-	text-shadow: rgba(0,0,0,0.5) 0 -0.08em 0;
+}
+
+.x-toolbar-findHelp .x-title {
+	@include text-shadow($wttft-orange-dark 0.1em -0.1em 0.05em);
+}
+
+.x-toolbar-callTeenLink .x-title {
+	@include text-shadow($wttft-green-dark 0.1em -0.1em 0.05em);
+}
+
+.x-toolbar-aboutTeenLink .x-title {
+	@include text-shadow($wttft-blue-dark 0.1em -0.1em 0.05em);
+}
+
+.x-button-label {
+	color: #fff;
 }
 
 //home screen css -- adding the grid-like background to the panel !important because some responsive layouts override this override..
@@ -69,7 +107,7 @@ $list-header-bg-color: $base-color; //the grouping headers -- set to the be iden
 
 //applies the gridlike background to the about and call pages
 .aboutPanel, .callPanel {
-	background: url("../images/background.jpg") no-repeat center;
+	background: url("../images/background.png") no-repeat center;
 }
 
 //The WHERE to TURN for TEENS text on the home page
@@ -77,6 +115,7 @@ $list-header-bg-color: $base-color; //the grouping headers -- set to the be iden
 	color: #993f98;
 	font-size: 45px;
 	font-weight: bolder;
+	font-family: 'DIN Bold', sans-serif;
 	text-align: right;
 	text-shadow: 2px 2px 2px black;
 	padding-right: 5px;

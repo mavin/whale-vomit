@@ -36,7 +36,7 @@ Ext.define('WTTFT.controller.Browse', {
         var toggleSearch = Ext.getCmp('toggleSearch');
         if(search.getHidden()) {
             search.show();
-            toggleSearch.setIconCls('clear');
+            toggleSearch.setIconCls('delete');
         } else {
             search.hide();
             toggleSearch.setIconCls('search');

@@ -1,8 +1,9 @@
-@mixin wttft-button($color){
+@mixin wttft-button($color, $highlight, $border: false){
 	margin-bottom: 15px;
-	font-size: 17px;
+	font-size: 1.3em;
 	background: $color;
-	border: none;
+	@if $border { border: 1px solid $highlight; }
+	@else { border: none; }
 	color: white;
 	text-decoration: none;
 	align: left;
@@ -11,19 +12,19 @@
 	}
 
 	&.x-button-pressing {
-		background: darken($color, 10);
+		@include background-image(radial-gradient(color-stops($color, $highlight), center center));
 	}
 }
 
 .orange {
-	@include wttft-button(#FF7A00);
+	@include wttft-button(#f4aa00, #ef8200, true);
 	margin-top: 15px;
 }
 
 .green {
-	@include wttft-button(darken(#78FF0A, 10));
+	@include wttft-button(#bed600, #77b800, true);
 }
 
 .blue {
-	@include wttft-button(darken(#97d5dc, 10));
+	@include wttft-button(#a0dae8, #6dc6e7, true);
 }

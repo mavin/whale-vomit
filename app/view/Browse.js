@@ -5,8 +5,10 @@ Ext.define('WTTFT.view.Browse', {
 	config: {
 		title: 'Find Help',
 		iconCls: 'search',
+        cls: 'findHelp',
 
         navigationBar: {
+            ui: 'findHelp',
             items: [
                 {
                     id: 'toggleSearch',
@@ -59,7 +61,7 @@ Ext.define('WTTFT.view.Browse', {
             //On show event, unhides the TabBar
 			show: function() {
                 var tabBar = Ext.getCmp('main').getTabBar();
-                tabBar.setUi('dark');
+                tabBar.setUi('findHelp');
                 tabBar.show();
 			}
 		}
