@@ -3,8 +3,6 @@ Ext.define('WTTFT.view.Topic', {
 	xtype: 'topic',
 
 	config: {
-		// tpl: '<h1>{name}</h1><h2>{id}</h2>',
-		// styleHtmlContent: true,
 		navigationBar: false,
 		layout: 'vbox',
 		scrollable: {
