@@ -3,17 +3,27 @@ Ext.define('WTTFT.model.Topic', {
 
 	config: {
 		fields: [
-			{ name: 'id', type: 'int' },
-			{ name: 'name', type: 'string' },
+			{ name: 'keyword', type: 'auto' },
+			{ name: 'title', type: 'string' },
 			{ name: 'quote', type: 'string' },
-			{ name: 'content', type: 'string' }
+			{ name: 'content', type: 'string' },
+            { name: 'parent_id', type: 'auto' }
 		],
 
-		//associations: 
-		hasMany: {
-            model: 'WTTFT.model.Resource',
-            name : 'resources'
-        }
-	}
+        idProperty: 'keyword',
 
+        associations: [
+            {
+                type: 'belongsTo',
+                model: 'WTTFT.model.Topic',
+                name: 'parent',
+                foreignKey: 'parent_id'
+            },
+            {
+                type: 'hasMany',
+                model: 'WTTFT.model.Resources',
+                name: 'resources'
+            }
+        ]
+	}
 });

@@ -27,7 +27,7 @@ Ext.define('WTTFT.view.TopicsList', {
             },
             {
                 xtype: 'list',
-                itemTpl: '{name}',
+                itemTpl: '{ title }',
                 grouped: true,
                 indexBar: true,
                 store: 'topicStore'

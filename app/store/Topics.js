@@ -7,18 +7,18 @@ Ext.define('WTTFT.store.Topics', {
         model: 'WTTFT.model.Topic',
     	proxy: {
         	type: 'ajax',
-        	url: 'resources/data/test.json',
+        	url: 'resources/data/topics.json',
 	        reader: {
 	            type: 'json',
 	            noCache: false,
 	            enablePagingParams: false,
-	            limitParam: null,
-                rootProperty: 'topics'
+	            limitParam: null
+                //rootProperty: 'topics'
 	        }
 	    },
         grouper: {
             groupFn: function(record) {
-                return record.get('name')[0];
+                return record.get('title')[0];
             }
         },
         autoLoad: true
