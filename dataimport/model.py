@@ -44,7 +44,7 @@ class Topic(Base):
     title = Column(String, unique=True)
     # A snippet of text giving an overview of the topic
     quote = Column(Text)
-    # The main content of the topic, formatted in html
+    # The main content of the topic, stored as html but expected as markdown
     content = Column(Text)
 
     # Metadata around the topic
@@ -81,7 +81,7 @@ class Resource(Base):
     id = Column(Integer, primary_key=True)
     title = Column(String)
     subtitle = Column(String)
-    phone = Column(String)
+    phone = Column(Integer)
     website = Column(String)
     address1 = Column(String)
     address2 = Column(String)
@@ -102,8 +102,9 @@ class Resource(Base):
     # TODO: Add UniqueConstraints and Indexes
 
     def __repr__(self):
-        return "<Resource(' %s : %s : %s ')>" % \
-               (self.id, self.title, self.subtitle)
+        return "<Resource(' %s : %s : %s ')>" % (
+            self.id, self.title, self.subtitle
+        )
 
 
 class Version(Base):
@@ -135,5 +136,6 @@ class Version(Base):
         self.update_type = update_type
 
     def __repr__(self):
-        return "<Version(' %s : %s : %s ')>" % \
-               (self.id, self.version, self.update_type)
+        return "<Version(' %s : %s : %s ')>" % (
+            self.id, self.version, self.update_type
+        )
