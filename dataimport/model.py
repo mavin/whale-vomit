@@ -5,6 +5,7 @@ from sqlalchemy import (
     Integer, String, Text, DateTime, Boolean
 )
 from sqlalchemy.orm import relationship, backref
+from datetime import datetime
 
 Base = declarative_base()
 
@@ -59,10 +60,6 @@ class Topic(Base):
 
     # TODO: Add UniqueConstraints and Indexes
 
-    def __init__(self):
-        # TODO: implement init for Topic or InitMixin
-        pass
-
     def __repr__(self):
         return "<Topic(' %s ')>" % self.keyword
 
@@ -104,10 +101,6 @@ class Resource(Base):
 
     # TODO: Add UniqueConstraints and Indexes
 
-    def __init__(self):
-        # TODO: implement init for Resource or InitMixin
-        pass
-
     def __repr__(self):
         return "<Resource(' %s : %s : %s ')>" % \
                (self.id, self.title, self.subtitle)
@@ -137,9 +130,9 @@ class Version(Base):
 
     # TODO: Add UniqueConstraints and Indexes
 
-    def __init__(self):
-        # TODO: implement init for Version or InitMixin
-        pass
+    def __init__(self, update_type="batch"):
+        self.version = datetime.now()
+        self.update_type = update_type
 
     def __repr__(self):
         return "<Version(' %s : %s : %s ')>" % \
